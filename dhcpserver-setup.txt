@@ -1,0 +1,18 @@
+Setup to connect to pi:
+
+1. Install dnsmasq (or DHCP server)
+2. dnsmasq config: 
+	# DNSMASQ CONFIG FOR USE AS DHCP SERVER	
+	interface=enp0s25
+	dhcp-authoritative
+	dhcp-range=10.0.0.10,10.0.0.250,12h
+	dhcp-host=00:24:e8:38:e4:4e,10.1.1.100
+	dhcp-option=3,10.0.0.1
+	dhcp-option=6,10.0.0.1
+	log-queries
+3. Set static ip on ethernet adapter: 
+	IP: 		10.0.0.1
+	Netmask: 	255.255.255.0
+3. Start dnsmasq 
+	Debian: 	service dnsmasq start	
+	Arch: 		systemctl start dnsmasq
