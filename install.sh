@@ -8,7 +8,8 @@
 
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
-files="bashrc vimrc vim" #            # list of files/folders to symlink in homedir
+files="bashrc screenrc bash_aliases" #vimrc vim" #            # list of files/folders to symlink 
+in homedir
 
 ##########
 
@@ -31,8 +32,8 @@ for file in $files; do
 done
 
 #Install vim plugins
-echo "Installing vim plugins"
-git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-vim +PluginInstall +qall
-echo "...done"
+#echo "Installing vim plugins"
+#git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+#vim +PluginInstall +qall
+#echo "...done"
 
