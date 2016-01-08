@@ -23,4 +23,4 @@ fi
 
 export PATH=$PATH:~/bin
 
-PS1='[\u@\h \W]\$ '
+PS1='[\u@\h \w]\$ '
