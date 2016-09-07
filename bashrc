@@ -23,4 +23,13 @@ fi
 
 export PATH=$PATH:~/bin
 
+### From: https://hackercodex.com/guide/python-development-environment-on-mac-osx/
+gpip(){
+	PIP_REQUIRE_VIRTUALENV="" pip "$@"
+}
+# pip should only run if there is a virtualenv currently activated
+export PIP_REQUIRE_VIRTUALENV=true
+#######
+
+
 PS1='[\u@\h \w]\$ '

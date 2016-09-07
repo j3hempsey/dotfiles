@@ -1,51 +1,30 @@
-set nocompatible
-filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+"" General
+set number	        " Show line numbers
+set linebreak		" Break lines at word (requires Wrap lines)
+set showbreak=++++	" Wrap-broken line prefix
+set textwidth=100	" Line wrap (number of cols)
+set showmatch		" Highlight matching brace
+set spell			" Enable spell-checking
+set visualbell	   	" Use visual bell (no beeping)
+set cursorline		" Highlight current line
 
-" This is the Vundle package, which can be found on GitHub.
-" For GitHub repos, you specify plugins using the
-" 'user/repository' format
-Plugin 'gmarik/vundle'
-
-" We could also add repositories with a ".git" extension
-Plugin 'scrooloose/nerdtree.git'
-
-" To get plugins from Vim Scripts, you can reference the plugin
-" by name as it appears on the site
-Plugin 'Buffergator'
-"************************"
-"INSERT NEW PLUGINS BELOW"
-"************************"
-Plugin 'bling/vim-airline'
-Plugin 'scrooloose/syntastic'
-
-"************************"
-"           END         "
-"************************"
-" Now we can turn our filetype functionality back on
-filetype plugin indent on
-"*************"
-"CONFIGURATION"
-"*************"
-let g:airline#extensions#tabline#enabled = 1
-let g:bufferline_echo = 0
-let g:airline_theme='simple'
-set noshowmode
-set laststatus=2 
-set t_Co=256              " enable 256-color mode.
-syntax enable             " enable syntax highlighting (previously syntax on).
-colorscheme nucolors      " set colorscheme
-set number                " show line numbers
-set nohlsearch            " Don't continue to highlight searched phrases.
-set incsearch             " But do highlight as you type your search.
-set ignorecase            " Make searches case-insensitive.
-set ruler                 " Always show info along bottom.
-set autoindent            " auto-indent
-set tabstop=4             " tab spacing
-set softtabstop=4         " unify
-set shiftwidth=4          " indent/outdent by 4 columns
-set shiftround            " always indent/outdent to the nearest tabstop
-set expandtab             " use spaces instead of tabs
-set smarttab              " use tabs at the start of a line, spaces elsewhere
-set nowrap                " don't wrap text
+set incsearch		" Search as charecters are entered
+set hlsearch		" Highlight all search results
+set smartcase		" Enable smart-case search
+set ignorecase		" Always case-insensitive
+set incsearch		" Searches for strings incrementally
+ 
+set autoindent		" Auto-indent new lines
+set shiftwidth=4	" Number of auto-indent spaces
+set tabstop=4		" Number of spaces a tab counts for
+set smartindent		" Enable smart-indent
+set smarttab		" Enable smart-tabs
+set softtabstop=4	" Number of spaces per Tab
+ 
+"" Advanced
+set ruler			" Show row and column ruler information
+ 
+set undolevels=1000	" Number of undo levels
+set backspace=indent,eol,start	" Backspace behaviour
+set wildmenu		" Visual autocomplete for command menu
+set lazyredraw		" Redraw only when we need to
