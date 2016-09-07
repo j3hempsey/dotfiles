@@ -23,11 +23,13 @@ cd $dir
 echo "...done"
 
 # move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
-for file in $files; do
-    echo "Moving any existing dotfiles from ~ to $olddir"
-    mv ~/.$file ~/dotfiles_old/
-    echo "Creating symlink to $file in home directory."
-    ln -s $dir/$file ~/.$file
+for file in *; do
+    if [[ "$file" != "old_files" ]] && [[ "$file" != "install.sh" ]]; then 	    
+        echo "Moving any existing dotfiles from ~ to $olddir"
+        mv ~/.$file ~/dotfiles_old/
+        echo "Creating symlink to $file in home directory."
+        ln -s $dir/$file ~/.$file
+    fi
 done
 
 #Install vim plugins
