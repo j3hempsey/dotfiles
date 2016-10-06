@@ -59,3 +59,15 @@ set sidescroll=1
 set listchars=trail:·
 nmap <silent> <C-D> :NERDTreeToggle<CR>
 let g:ctrlp_map = '<c-p>'
+" Save file
+inoremap <C-s> <esc>:w<cr> 
+" Quit
+inoremap <C-q> <esc>:q<cr>
+" Save and quit
+inoremap <C-w-q> <esc>:wq<cr>
+" Save file
+nnoremap <C-s> :w<cr>
+" Quit
+nnoremap <C-q> :q<cr>
+" Save and quit 
+nnoremap <C-w-q> :wq<cr>

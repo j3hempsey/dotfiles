@@ -31,5 +31,7 @@ gpip(){
 export PIP_REQUIRE_VIRTUALENV=true
 #######
 
+# Turn off flow control
+stty -ixon
 
 PS1='[\u@\h \w]\$ '
