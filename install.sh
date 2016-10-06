@@ -33,8 +33,8 @@ for file in *; do
 done
 
 #Install vim plugins
-#echo "Installing vim plugins"
-#git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-#vim +PluginInstall +qall
+echo "Installing vim plugins"
+git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+vim +PluginInstall +qall
 #echo "...done"
 
