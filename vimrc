@@ -56,7 +56,6 @@ set lazyredraw		" Redraw only when we need to
 set scrolloff=8         "Start scrolling when we're 8 lines away from margins
 set sidescrolloff=15
 set sidescroll=1
-set listchars=trail:·
 nmap <silent> <C-D> :NERDTreeToggle<CR>
 let g:ctrlp_map = '<c-p>'
 " Save file
