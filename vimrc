@@ -15,6 +15,8 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
 " pretty sweet linting/error checking. Works on save
 Bundle 'https://github.com/scrooloose/syntastic.git'
+" VimWiki
+Bundle 'https://github.com/vimwiki/vimwiki.git'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
