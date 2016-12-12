@@ -33,6 +33,7 @@ set showmatch		" Highlight matching brace
 " set spell			" Enable spell-checking
 set visualbell	   	" Use visual bell (no beeping)
 set cursorline		" Highlight current line
+syntax on
 
 set incsearch		" Search as charecters are entered
 set hlsearch		" Highlight all search results
