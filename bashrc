@@ -23,15 +23,16 @@ fi
 
 export PATH=$PATH:~/bin
 
+#Activate a virtualenv
+alias activate="source bin/activate"
+
 ### From: https://hackercodex.com/guide/python-development-environment-on-mac-osx/
 gpip(){
-	PIP_REQUIRE_VIRTUALENV="" pip "$@"
+	   PIP_REQUIRE_VIRTUALENV="" pip "$@"
 }
 # pip should only run if there is a virtualenv currently activated
 export PIP_REQUIRE_VIRTUALENV=true
 #######
 
-# Turn off flow control
-stty -ixon
 
 PS1='[\u@\h \w]\$ '
