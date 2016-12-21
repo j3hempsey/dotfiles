@@ -1,2 +1,2 @@
 .DS_Store
-
+pylint.d/*.stats
