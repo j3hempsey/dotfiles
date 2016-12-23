@@ -22,3 +22,13 @@ function flushdns()
 	sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist
 }
 
+function run_on_mgrnodes()
+{
+    if [[ -z "$1" ]]; then 
+        echo "ERROR: Must supply a command to run."
+    else
+        for i in 1 2 3; do 
+            ssh mgrnode$i "$1"
+        done
+    fi
+}
