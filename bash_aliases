@@ -16,11 +16,11 @@ function badussh()
 
 alias  baduscp='scp -i ~/.ssh/badu_we_id_rsa'
 
-function flushdns()
-{
-	sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist
-	sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist
-}
+#function flushdns()
+#{
+#	sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist
+#	sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist
+#}
 
 function run_on_mgrnodes()
 {
