@@ -17,6 +17,8 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'https://github.com/scrooloose/syntastic.git'
 " VimWiki
 Bundle 'https://github.com/vimwiki/vimwiki.git'
+" Git changes
+Bundle 'https://github.com/airblade/vim-gitgutter.git'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
