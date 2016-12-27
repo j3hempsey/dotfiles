@@ -32,3 +32,7 @@ function run_on_mgrnodes()
         done
     fi
 }
+
+alias find_file="find . -type f | grep $1"
+alias find_in_file="find . -type f | xargs grep $1"
+alias update_vim="vim +PluginInstall +qall"
