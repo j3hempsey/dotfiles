@@ -21,7 +21,7 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-export PATH=$PATH:~/bin
+export PATH=/usr/local/opt/openssl/bin:$PATH:~/bin
 
 #Activate a virtualenv
 alias activate="source bin/activate"
@@ -33,6 +33,9 @@ gpip(){
 # pip should only run if there is a virtualenv currently activated
 export PIP_REQUIRE_VIRTUALENV=true
 #######
+
+alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)
+%C(bold blue)<%an>%Creset' --abbrev-commit --stat"
 
 
 PS1='[\u@\h \w]\$ '
