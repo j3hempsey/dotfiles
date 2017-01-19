@@ -38,4 +38,15 @@ alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset
 %C(bold blue)<%an>%Creset' --abbrev-commit --stat"
 
 
-PS1='[\u@\h \w]\$ '
+#PS1='[\u@\h \w]\$ '
+COLOR1='\[\033[01;32;46m\]'
+COLOR2='\[\033[00;30;46m\]'
+COLOR3='\[\033[00;34;46m\]'
+COLOR4='\[\033[00;34m\]'
+COLOR5='\[\033[00;32m\]'
+COLOR6='\[\033[01;37m\]'
+COLOR7='\[\033[01;32m\]'
+COLOR8='\[\033[00;37m\]'
+PS1="$COLOR4$COLOR6 \t $COLOR2[\h \w]\n\
+$COLOR5\u$COLOR8:$COLOR7$COLOR8\$ "
+PS2="$COLOR1$GRAD1$COLOR3$GRAD2$COLOR4$GRAD1$COLOR5> "
