@@ -1,4 +1,4 @@
-# Aliases
+l wttr.in/$(echo "$1" | sed 's/ /%20/g'),UScurl -s wttr.in/$(echo "$1" | sed 's/ /%20/g'),USAliases
 function contssh() 
 {
 	while :; do sleep 1; ssh $1; done
@@ -32,6 +32,14 @@ function run_on_mgrnodes()
         done
     fi
 }
+
+function weather()
+{
+    curl -s wttr.in/$(echo "$1" | sed 's/ /%20/g'),US
+}
+
+alias newport_weather="weather \"Newport Beach\""
+alias irvine_weather="weather \"Irvine\""
 
 alias find_file="find . -type f | grep $1"
 alias find_in_file="find . -type f | xargs grep $1"
