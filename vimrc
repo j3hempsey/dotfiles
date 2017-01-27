@@ -55,8 +55,7 @@ set smarttab		" Enable smart-tabs
 "set softtabstop=4	" Number of spaces per Tab
 set softtabstop=3 
 "" Advanced
-set ruler			" Show row and column ruler information
- 
+set ruler			" Show row and column ruler information 
 set undolevels=1000	" Number of undo levels
 set backspace=indent,eol,start	" Backspace behaviour
 set wildmenu		" Visual autocomplete for command menu
@@ -65,6 +64,21 @@ set lazyredraw		" Redraw only when we need to
 set scrolloff=8         "Start scrolling when we're 8 lines away from margins
 set sidescrolloff=15
 set sidescroll=1
+" Status bar
+set laststatus=2
+set statusline=%t       "tail of the filename
+set statusline+=[%{strlen(&fenc)?&fenc:'none'}, "file encoding
+set statusline+=%{&ff}] "file format
+set statusline+=%h      "help file flag
+set statusline+=%m      "modified flag
+set statusline+=%r      "read only flag
+set statusline+=%y      "filetype
+set statusline+=%=      "left/right separator
+set statusline+=%c,     "cursor column
+set statusline+=%l/%L   "cursor line/total lines
+set statusline+=\ %P    "percent through file
+
+" Key remap
 nmap <silent> <C-I> :NERDTreeToggle<CR>
 let g:ctrlp_map = '<c-p>'
 " Save file
