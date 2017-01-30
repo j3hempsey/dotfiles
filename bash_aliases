@@ -1,4 +1,3 @@
-l wttr.in/$(echo "$1" | sed 's/ /%20/g'),UScurl -s wttr.in/$(echo "$1" | sed 's/ /%20/g'),USAliases
 function contssh() 
 {
 	while :; do sleep 1; ssh $1; done
@@ -35,7 +34,7 @@ function run_on_mgrnodes()
 
 function weather()
 {
-    curl -s wttr.in/$(echo "$1" | sed 's/ /%20/g'),US
+    curl -s wttr.in/$(echo "$1" | sed 's/ /%20/g')
 }
 
 alias newport_weather="weather \"Newport Beach\""
