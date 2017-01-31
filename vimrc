@@ -60,6 +60,8 @@ set undolevels=1000	" Number of undo levels
 set backspace=indent,eol,start	" Backspace behaviour
 set wildmenu		" Visual autocomplete for command menu
 set lazyredraw		" Redraw only when we need to
+set foldmethod=syntax
+set foldlevelstart=10
 " https://github.com/joelhooks/dotfiles/blob/master/.vim/vimrc
 set scrolloff=8         "Start scrolling when we're 8 lines away from margins
 set sidescrolloff=15
