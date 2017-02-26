@@ -23,20 +23,9 @@ fi
 
 export PATH=/usr/local/opt/openssl/bin:$PATH:~/bin
 
-#Activate a virtualenv
-alias activate="source bin/activate"
-
-### From: https://hackercodex.com/guide/python-development-environment-on-mac-osx/
-gpip(){
-	   PIP_REQUIRE_VIRTUALENV="" pip "$@"
-}
 # pip should only run if there is a virtualenv currently activated
 export PIP_REQUIRE_VIRTUALENV=true
 #######
-
-alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)
-%C(bold blue)<%an>%Creset' --abbrev-commit --stat"
-
 
 #PS1='[\u@\h \w]\$ '
 COLOR1='\[\033[01;32;46m\]'
@@ -47,6 +36,46 @@ COLOR5='\[\033[00;32m\]'
 COLOR6='\[\033[01;37m\]'
 COLOR7='\[\033[01;32m\]'
 COLOR8='\[\033[00;37m\]'
-PS1="$COLOR4$COLOR6 \t $COLOR2[\h \w]\n\
-$COLOR5\u$COLOR8:$COLOR7$COLOR8\$ "
-PS2="$COLOR1$GRAD1$COLOR3$GRAD2$COLOR4$GRAD1$COLOR5> "
+
+txtblk='\e[0;30m' # Black - Regular
+txtred='\e[0;31m' # Red
+txtgrn='\e[0;32m' # Green
+txtylw='\e[0;33m' # Yellow
+txtblu='\e[0;34m' # Blue
+txtpur='\e[0;35m' # Purple
+txtcyn='\e[0;36m' # Cyan
+txtwht='\e[0;37m' # White
+bldblk='\e[1;30m' # Black - Bold
+bldred='\e[1;31m' # Red
+bldgrn='\e[1;32m' # Green
+bldylw='\e[1;33m' # Yellow
+bldblu='\e[1;34m' # Blue
+bldpur='\e[1;35m' # Purple
+bldcyn='\e[1;36m' # Cyan
+bldwht='\e[1;37m' # White
+unkblk='\e[4;30m' # Black - Underline
+undred='\e[4;31m' # Red
+undgrn='\e[4;32m' # Green
+undylw='\e[4;33m' # Yellow
+undblu='\e[4;34m' # Blue
+undpur='\e[4;35m' # Purple
+undcyn='\e[4;36m' # Cyan
+undwht='\e[4;37m' # White
+bakblk='\e[40m'   # Black - Background
+bakred='\e[41m'   # Red
+bakgrn='\e[42m'   # Green
+bakylw='\e[43m'   # Yellow
+bakblu='\e[44m'   # Blue
+bakpur='\e[45m'   # Purple
+bakcyn='\e[46m'   # Cyan
+bakwht='\e[47m'   # White
+txtrst='\e[0m'    # Text Reset
+PS1="$bldwht\t $undylw[\h \w]$txtrst\n\
+$txtgrn\u$txtwht:\$ "
+PS2="$txtgrn>$txtwht "
+#OLD
+#echo -e "$COLOR1 Color1 $COLOR2 Color2 $COLOR3 Color3 $COLOR4 Color4"
+#echo -e "$COLOR5 Color5 $COLOR6 Color6 $COLOR7 Color7 $COLOR8 Color8"
+#PS1="$COLOR4$COLOR6 \t $COLOR2[\h \w]\n\
+#$COLOR5\u$COLOR8:$COLOR7$COLOR8\$ "
+#PS2="$COLOR1$GRAD1$COLOR3$GRAD2$COLOR4$GRAD1$COLOR5> "

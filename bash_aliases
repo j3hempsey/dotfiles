@@ -37,6 +37,10 @@ function weather()
     curl -s wttr.in/$(echo "$1" | sed 's/ /%20/g')
 }
 
+### From: https://hackercodex.com/guide/python-development-environment-on-mac-osx/
+gpip(){
+	   PIP_REQUIRE_VIRTUALENV="" pip "$@"
+}
 alias newport_weather="weather \"Newport Beach\""
 alias irvine_weather="weather \"Irvine\""
 
@@ -45,3 +49,9 @@ alias find_in_file="find . -type f | xargs grep $1"
 alias update_vim="vim +PluginInstall +qall"
 alias ls="ls -G"
 alias licmerge="pushd ~/workspace/support; git pull; git checkout master; git merge origin/development; git push"
+alias grep="grep --color=auto"
+#Activate a virtualenv
+alias activate="source bin/activate"
+alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)
+%C(bold blue)<%an>%Creset' --abbrev-commit --stat"
+
