@@ -25,7 +25,8 @@ export PATH=/usr/local/opt/openssl/bin:$PATH:~/bin
 
 # pip should only run if there is a virtualenv currently activated
 export PIP_REQUIRE_VIRTUALENV=true
-#######
+
+export PATH=$PATH:$HOME/workspace/git-radar
 
 #PS1='[\u@\h \w]\$ '
 COLOR1='\[\033[01;32;46m\]'
@@ -70,12 +71,12 @@ bakpur='\e[45m'   # Purple
 bakcyn='\e[46m'   # Cyan
 bakwht='\e[47m'   # White
 txtrst='\e[0m'    # Text Reset
-PS1="$bldwht\t $undylw[\h \w]$txtrst\n\
-$txtgrn\u$txtwht:\$ "
-PS2="$txtgrn>$txtwht "
+PS1="$bldwht\t $undylw[\h \w]$txtrst\$(git-radar --bash --fetch)\n\
+$txtgrn\u$txtwht:\$$txtrst "
+PS2="$txtgrn>$txtrst "
 #OLD
 #echo -e "$COLOR1 Color1 $COLOR2 Color2 $COLOR3 Color3 $COLOR4 Color4"
 #echo -e "$COLOR5 Color5 $COLOR6 Color6 $COLOR7 Color7 $COLOR8 Color8"
-#PS1="$COLOR4$COLOR6 \t $COLOR2[\h \w]\n\
+#PS1="$COLOR4$COLOR6 \t $COLOR2[\h \w]$txtrst\$(git-radar --bash --fetch)\n\
 #$COLOR5\u$COLOR8:$COLOR7$COLOR8\$ "
 #PS2="$COLOR1$GRAD1$COLOR3$GRAD2$COLOR4$GRAD1$COLOR5> "

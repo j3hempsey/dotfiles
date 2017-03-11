@@ -2,3 +2,5 @@
 pylint.d/*.stats
 vim/bundle
 history.sqlite
+*.swp
+
