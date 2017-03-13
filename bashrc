@@ -15,6 +15,8 @@ shopt -s histappend
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
 HISTFILESIZE=2000
+# Ignore rm -rf 
+HISTIGNORE="rm -rf \*"
 
 # import aliases
 if [ -f ~/.bash_aliases ]; then
