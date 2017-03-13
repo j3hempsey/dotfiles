@@ -17,11 +17,6 @@ export PATH=/usr/local/bin:$PATH:~/bin/
 # Load .bashrc if it exists
 test -f ~/.bashrc && source ~/.bashrc
 
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-	    source $(brew --prefix)/etc/bash_completion
-fi
-#####
-
 ### Mac show hidden files aliases ###
 alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES;' 
 alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO;'
