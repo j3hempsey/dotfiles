@@ -73,7 +73,8 @@ bakpur='\[\e[45m\]'   # Purple
 bakcyn='\[\e[46m\]'   # Cyan
 bakwht='\[\e[47m\]'   # White
 txtrst='\[\e[0m\]'    # Text Reset
-PS1="$bldwht\t $undylw[\h \w]$txtrst\$(git-radar --bash --fetch)\n$txtgrn\u$txtwht:\$$txtwht\[\e[m\] "
+PS1="$bldwht\t $undylw[\h \w]$txtrst\$(git-radar --bash --fetch)\n\
+$txtgrn\u$txtwht:\$$txtwht\[\e[m\] "
 PS2="$txtgrn>$txtwht "
 #OLD
 #echo -e "$COLOR1 Color1 $COLOR2 Color2 $COLOR3 Color3 $COLOR4 Color4"
