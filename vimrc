@@ -55,7 +55,8 @@ set softtabstop=4	" Number of spaces per Tab
  
 "" Advanced
 set ruler			" Show row and column ruler information
- 
+set foldmethod=syntax " Set fold ability on syntax
+set foldlevelstart=10 " Automatically fold at block level of 10
 set undolevels=1000	" Number of undo levels
 set backspace=indent,eol,start	" Backspace behaviour
 set wildmenu		" Visual autocomplete for command menu
