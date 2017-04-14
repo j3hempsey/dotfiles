@@ -54,4 +54,5 @@ alias grep="grep --color=auto"
 alias activate="source bin/activate"
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)
 %C(bold blue)<%an>%Creset' --abbrev-commit --stat"
+alias pxssh="ssh -o ProxyCommand='nc -x localhost:1080 %h %p'"
 
