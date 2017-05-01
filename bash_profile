@@ -7,6 +7,7 @@ export PATH="${PATH}:${GRADLE_HOME}/bin:${GROOVY_HOME}/bin:${ANDROID_HOME}/tools
 export DYLD_FALLBACK_LIBRARY_PATH=${DYLD_FALLBACK_LIBRARY_PATH}:/usr/local/mysql/lib
 export BADU_NDK_VERSION=4.9
 export GIT_ASKPASS=./.gitpass
+export EDITOR="vim"
 unset  SSH_ASKPASS
 
 ### From: https://hackercodex.com/guide/mac-osx-mavericks-10.9-configuration/
