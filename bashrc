@@ -73,9 +73,16 @@ bakpur='\[\e[45m\]'   # Purple
 bakcyn='\[\e[46m\]'   # Cyan
 bakwht='\[\e[47m\]'   # White
 txtrst='\[\e[0m\]'    # Text Reset
-PS1="$bldwht\t $undylw[\h \w]$txtrst\n\
-$txtgrn\u$txtwht:\$$txtrst "
-PS2="$txtgrn>$txtrst "
+if [[ "$(uname)" == "Linux" ]]; then
+    # Linux specifics
+    PS1="$bldwht\t $undylw[\h \w]$txtrst\n\
+    $txtgrn\u$txtwht:\$$txtrst "
+    PS2="$txtgrn>$txtrst "
+elif [[ "$(uname)" == "Darwin" ]]; then
+    PS1="$bldwht\t $undylw[\h \w]$txtrst\$(git-radar --bash --fetch)\n\
+    $txtgrn\u$txtwht:\$$txtwht\[\e[m\] "
+    PS2="$txtgrn>$txtwht "
+fi
 #OLD
 #echo -e "$COLOR1 Color1 $COLOR2 Color2 $COLOR3 Color3 $COLOR4 Color4"
 #echo -e "$COLOR5 Color5 $COLOR6 Color6 $COLOR7 Color7 $COLOR8 Color8"
