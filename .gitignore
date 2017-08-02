@@ -1,3 +1,5 @@
 .DS_Store
 pylint.d/*.stats
 vim/bundle
+history.sqlite
+*.swp

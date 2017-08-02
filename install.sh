@@ -8,7 +8,7 @@
 
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
-files="bashrc screenrc bash_aliases" #vimrc vim" #            # list of files/folders to symlink in homedir
+files=(bashrc screenrc bash_aliases bash_profile vimrc vim tmux.conf) #            # list of files/folders to symlink in homedir
 
 ##########
 
@@ -19,16 +19,18 @@ echo "...done"
 
 # change to the dotfiles directory
 echo "Changing to the $dir directory"
-cd $dir
+cd $dir || exit 1
 echo "...done"
 
 # move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
-for file in *; do
+for file in "${files[@]}"; do
     if [[ "$file" != "old_files" ]] && [[ "$file" != "install.sh" ]]; then 	    
-        echo "Moving any existing dotfiles from ~ to $olddir"
-        mv ~/.$file ~/dotfiles_old/
+        if [[ -e ~/."$file" ]]; then
+            echo "Moving any existing dotfiles from ~ to $olddir"
+            mv ~/."$file" ~/dotfiles_old/
+        fi
         echo "Creating symlink to $file in home directory."
-        ln -s $dir/$file ~/.$file
+        ln -s "$dir"/"$file" ~/."$file"
     fi
 done
 
