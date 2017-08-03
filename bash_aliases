@@ -47,6 +47,7 @@ alias pxscp="scp -o ProxyCommand='nc -x localhost:1080 %h %p'"
 if [[ "$(uname)" == "Linux" ]]; then
     # Linux specifics
     alias grep="grep --color=auto"
+    alias gcc11="scl enable devtoolset-2 bash"
 elif [[ "$(uname)" == "Darwin" ]]; then
     # Mac specifics
     alias killcassandra="kill -9 $(ps aux  | grep cassandra | grep java | awk '{ print $2 }'); sleep 1; ps aux | grep cassandra"
