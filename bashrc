@@ -22,6 +22,9 @@ HISTIGNORE="rm -rf \*"
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
+if [[ "$_UNIX_TYPE" = "" ]]; then 
+    export _UNIX_TYPE=$(uname)
+fi
 
 export PATH=/usr/local/opt/openssl/bin:$PATH:~/bin
 
@@ -73,12 +76,12 @@ bakpur='\[\e[45m\]'   # Purple
 bakcyn='\[\e[46m\]'   # Cyan
 bakwht='\[\e[47m\]'   # White
 txtrst='\[\e[0m\]'    # Text Reset
-if [[ "$(uname)" == "Linux" ]]; then
+if [[ "$_UNIX_TYPE" == "Linux" ]]; then
 # Linux specifics
 PS1="$bldwht\t $undylw[\h \w]$txtrst\n\
 $txtgrn\u$txtwht:\$$txtrst "
 PS2="$txtgrn>$txtrst "
-elif [[ "$(uname)" == "Darwin" ]]; then
+elif [[ "$_UNIX_TYPE" == "Darwin" ]]; then
 PS1="$bldwht\t $undylw[\h \w]$txtrst\$(git-radar --bash --fetch)\n\
 $txtgrn\u$txtwht:\$$txtwht\[\e[m\] "
 PS2="$txtgrn>$txtwht "
