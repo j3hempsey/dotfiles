@@ -41,4 +41,5 @@ elif [[ "$(uname)" == "Darwin" ]]; then
     ### END ###
 fi
 
+[[ -r ~/.bashrc ]] &&  source ~/.bashrc
 
