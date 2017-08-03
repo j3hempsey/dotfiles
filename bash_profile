@@ -17,7 +17,7 @@ elif [[ "$(uname)" == "Darwin" ]]; then
     export CQLSH_NO_BUNDLED=TRUE
     export PATH="${PATH}:/usr/local/mysql/bin:/opt/bin:/usr/local/maven/bin:/opt/cassandra/bin"
     export PATH="${PATH}:${GRADLE_HOME}/bin:${GROOVY_HOME}/bin:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools:${ANDROID_NDK}"
-    export PATH="${PATH}:${CASSANDRA_HOME}/bin"
+    export PATH="${PATH}:${CASSANDRA_HOME}/bin:~/Library/Python/2.7/bin/"
 
     ### From: https://hackercodex.com/guide/mac-osx-mavericks-10.9-configuration/
     # Set architecture flags
