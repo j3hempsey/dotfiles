@@ -33,7 +33,7 @@ function find_in_file()
     "find . -type f | xargs grep $1"
 }
 alias update_vim="vim +PluginInstall +qall"
-alias ls="ls -G"
+alias ls="ls -G --color=auto"
 alias grep="grep --color=auto"
 #Activate a virtualenv
 alias activate="source bin/activate"

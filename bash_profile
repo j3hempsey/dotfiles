@@ -42,5 +42,8 @@ fi
 export GRADLE_HOME=/opt/gradle
 export GROOVY_HOME=/opt/groovy
 
+export GRADLE_HOME=/opt/gradle
+export GROOVY_HOME=/opt/groovy
+
 [[ -r ~/.bashrc ]] &&  source ~/.bashrc
 
