@@ -5,12 +5,11 @@ unset  SSH_ASKPASS
 if [[ "$(uname)" == "Linux" ]]; then
     # Linux specifics
     export PATH="$PATH:~/bin/"
+    export PATH="$PATH:/usr/bin/gradle-2.7/bin"
 elif [[ "$(uname)" == "Darwin" ]]; then
     # Mac specifics
     export ANDROID_HOME=/opt/android
     export ANDROID_NDK=/opt/android-ndk
-    export GRADLE_HOME=/opt/gradle
-    export GROOVY_HOME=/opt/groovy
     export DYLD_FALLBACK_LIBRARY_PATH=${DYLD_FALLBACK_LIBRARY_PATH}:/usr/local/mysql/lib
     export BADU_NDK_VERSION=4.9
     export CASSANDRA_HOME="/opt/cassandra"
@@ -40,6 +39,11 @@ elif [[ "$(uname)" == "Darwin" ]]; then
     alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO;'
     ### END ###
 fi
+export GRADLE_HOME=/opt/gradle
+export GROOVY_HOME=/opt/groovy
+
+export GRADLE_HOME=/opt/gradle
+export GROOVY_HOME=/opt/groovy
 
 [[ -r ~/.bashrc ]] &&  source ~/.bashrc
 
