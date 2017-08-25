@@ -8,6 +8,6 @@
 	name = jhempsey
 	email = justin.hempsey@badunetworks.com
 [credential]
-	helper = cache --timeout=3600
+	helper = store
 [merge]
 	conflictStyle = diff3

@@ -19,6 +19,8 @@ Bundle 'https://github.com/scrooloose/syntastic.git'
 Bundle 'https://github.com/vimwiki/vimwiki.git'
 " Git changes
 Bundle 'https://github.com/airblade/vim-gitgutter.git'
+" Smooth Scrolling 
+Bundle 'https://github.com/terryma/vim-smooth-scroll.git'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -70,19 +72,17 @@ set sidescrolloff=15
 set sidescroll=1
 " Status bar
 set laststatus=2
-set statusline=%t       "tail of the filename
-set statusline+=[%{strlen(&fenc)?&fenc:'none'}, "file encoding
-set statusline+=%{&ff}] "file format
+set statusline=%c:     "cursor column
+set statusline+=%l/%L\   "cursor line/total lines
+set statusline+=%t       "tail of the filename
 set statusline+=%h      "help file flag
 set statusline+=%m      "modified flag
 set statusline+=%r      "read only flag
 set statusline+=%y      "filetype
 set statusline+=%=      "left/right separator
-set statusline+=%c,     "cursor column
-set statusline+=%l/%L   "cursor line/total lines
 set statusline+=\ %P    "percent through file
 
-" Key remap
+""" Key remapings """
 nmap <silent> <C-I> :NERDTreeToggle<CR>
 let g:ctrlp_map = '<c-p>'
 " Save file
@@ -97,3 +97,11 @@ nnoremap <C-s> :w<cr>
 nnoremap <C-q> :q<cr>
 " Save and quit 
 nnoremap <C-w-q> :wq<cr>
+" Remap paging to smooth scrolling
+noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 3)<CR>
+noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 3)<CR>
+noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
+noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
+" Remap page up/down to use the scolling too
+noremap <silent> <PageUp> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
+noremap <silent> <PageDown> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
