@@ -17,12 +17,12 @@ elif [[ "$(uname)" == "Darwin" ]]; then
     export PATH="${PATH}:/usr/local/mysql/bin:/opt/bin:/usr/local/maven/bin:/opt/cassandra/bin"
     export PATH="${PATH}:${GRADLE_HOME}/bin:${GROOVY_HOME}/bin:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools:${ANDROID_NDK}"
     export PATH="${PATH}:${CASSANDRA_HOME}/bin:~/Library/Python/2.7/bin/"
-
+    
     ### From: https://hackercodex.com/guide/mac-osx-mavericks-10.9-configuration/
     # Set architecture flags
     export ARCHFLAGS="-arch x86_64"
     # Ensure user-installed binaries take precedence
-    export PATH=/usr/local/bin:$PATH:~/bin/
+    export PATH=/usr/local/bin:/usr/local/sbin:$PATH:~/bin/
     # Load .bashrc if it exists
     test -f ~/.bashrc && source ~/.bashrc
 
@@ -39,6 +39,8 @@ elif [[ "$(uname)" == "Darwin" ]]; then
     alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO;'
     ### END ###
 fi
+export GRADLE_HOME=/opt/gradle
+export GROOVY_HOME=/opt/groovy
 
 export GRADLE_HOME=/opt/gradle
 export GROOVY_HOME=/opt/groovy
