@@ -9,3 +9,5 @@
 	email = justin.hempsey@badunetworks.com
 [credential]
 	helper = store
+[merge]
+	conflictStyle = diff3
