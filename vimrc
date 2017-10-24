@@ -21,6 +21,8 @@ Bundle 'https://github.com/vimwiki/vimwiki.git'
 Bundle 'https://github.com/airblade/vim-gitgutter.git'
 " Smooth Scrolling 
 Bundle 'https://github.com/terryma/vim-smooth-scroll.git'
+" Tabar: Tag view 
+Bundle 'https://github.com/majutsushi/tagbar.git'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -105,3 +107,5 @@ noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
 " Remap page up/down to use the scolling too
 noremap <silent> <PageUp> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
 noremap <silent> <PageDown> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
+" Show tagbar
+nmap <F8> :TagbarToggle<CR>
