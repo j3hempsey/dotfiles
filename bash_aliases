@@ -33,13 +33,14 @@ function find_in_file()
     "find . -type f | xargs grep $1"
 }
 alias update_vim="vim +PluginInstall +qall"
-alias ls="ls -G --color=auto"
+alias ls="ls -G"
 alias grep="grep --color=auto"
 #Activate a virtualenv
 alias activate="source bin/activate"
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)
 %C(bold blue)<%an>%Creset' --abbrev-commit --stat"
 alias glogoneline="git log --oneline --no-merges"
+alias glog1="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)'"
 alias pxssh="ssh -o ProxyCommand='nc -x localhost:1080 %h %p'"
 alias pxscp="scp -o ProxyCommand='nc -x localhost:1080 %h %p'"
 

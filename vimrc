@@ -23,6 +23,10 @@ Bundle 'https://github.com/airblade/vim-gitgutter.git'
 Bundle 'https://github.com/terryma/vim-smooth-scroll.git'
 " Tabar: Tag view 
 Bundle 'https://github.com/majutsushi/tagbar.git'
+" Fugative - Git tools
+Bundle 'https://github.com/tpope/vim-fugitive.git' 
+" Closing tags
+Bundle 'docunext/closetag.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -109,3 +113,4 @@ noremap <silent> <PageUp> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
 noremap <silent> <PageDown> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
 " Show tagbar
 nmap <F8> :TagbarToggle<CR>
+
