@@ -17,7 +17,8 @@ elif [[ "$(uname)" == "Darwin" ]]; then
     export PATH="${PATH}:/usr/local/mysql/bin:/opt/bin:/usr/local/maven/bin:/opt/cassandra/bin"
     export PATH="${PATH}:${GRADLE_HOME}/bin:${GROOVY_HOME}/bin:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools:${ANDROID_NDK}"
     export PATH="${PATH}:${CASSANDRA_HOME}/bin:~/Library/Python/2.7/bin/"
-    
+    export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/"
+
     ### From: https://hackercodex.com/guide/mac-osx-mavericks-10.9-configuration/
     # Set architecture flags
     export ARCHFLAGS="-arch x86_64"
@@ -38,6 +39,8 @@ elif [[ "$(uname)" == "Darwin" ]]; then
     alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES;' 
     alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO;'
     ### END ###
+    # run date script
+    ~/workspace/proxy_scripts/set_date.sh
 fi
 export GRADLE_HOME=/opt/gradle
 export GROOVY_HOME=/opt/groovy
