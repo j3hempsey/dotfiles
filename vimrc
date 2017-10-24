@@ -21,6 +21,10 @@ Bundle 'https://github.com/vimwiki/vimwiki.git'
 Bundle 'https://github.com/airblade/vim-gitgutter.git'
 " Smooth Scrolling 
 Bundle 'https://github.com/terryma/vim-smooth-scroll.git'
+" Fugative - Git tools
+Bundle 'https://github.com/tpope/vim-fugitive.git' 
+" Closing tags
+Bundle 'docunext/closetag.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
