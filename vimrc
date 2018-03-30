@@ -27,6 +27,8 @@ Bundle 'https://github.com/majutsushi/tagbar.git'
 Bundle 'https://github.com/tpope/vim-fugitive.git' 
 " Closing tags
 Bundle 'docunext/closetag.vim'
+" Last cursor position
+Bundle 'https://github.com/farmergreg/vim-lastplace.git'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -87,6 +89,10 @@ set statusline+=%r      "read only flag
 set statusline+=%y      "filetype
 set statusline+=%=      "left/right separator
 set statusline+=\ %P    "percent through file
+hi Comment ctermfg=LightBlue
+hi Search  ctermfg=DarkRed ctermbg=LightYellow
+hi String  ctermfg=DarkBlue
+hi Number  ctermfg=Red
 
 """ Key remapings """
 nmap <silent> <C-I> :NERDTreeToggle<CR>
@@ -114,3 +120,4 @@ noremap <silent> <PageDown> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
 " Show tagbar
 nmap <F8> :TagbarToggle<CR>
 
+set viminfo='10,\"100,:20,%,n~/.viminfo
