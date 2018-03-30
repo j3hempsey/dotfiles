@@ -34,7 +34,7 @@ function find_in_file()
 }
 alias update_vim="vim +PluginInstall +qall"
 alias less="less -r" # support coloring
-alias grep="grep --color=auto"
+alias grep="grep -n --color=auto"
 #Activate a virtualenv
 alias activate="source bin/activate"
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)
