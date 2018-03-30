@@ -18,6 +18,8 @@ elif [[ "$(uname)" == "Darwin" ]]; then
     export PATH="${PATH}:${GRADLE_HOME}/bin:${GROOVY_HOME}/bin:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools:${ANDROID_NDK}"
     export PATH="${PATH}:${CASSANDRA_HOME}/bin:~/Library/Python/2.7/bin/"
     export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/"
+    #ddgr browser setting 
+    export BROWSER=w3m
 
     ### From: https://hackercodex.com/guide/mac-osx-mavericks-10.9-configuration/
     # Set architecture flags

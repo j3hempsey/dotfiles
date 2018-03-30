@@ -21,7 +21,7 @@ function baduscp()
 
 ### From: https://hackercodex.com/guide/python-development-environment-on-mac-osx/
 gpip(){
-	   PIP_REQUIRE_VIRTUALENV="" pip "$@"
+	   PIP_REQUIRE_VIRTUALENV="" pip2.7 "$@"
 }
 
 function find_file()
@@ -33,7 +33,8 @@ function find_in_file()
     "find . -type f | xargs grep $1"
 }
 alias update_vim="vim +PluginInstall +qall"
-alias ls="ls -G"
+alias ls="ls -G --color"
+alias less="less -r" # support coloring
 alias grep="grep --color=auto"
 #Activate a virtualenv
 alias activate="source bin/activate"
