@@ -33,7 +33,6 @@ function find_in_file()
     "find . -type f | xargs grep $1"
 }
 alias update_vim="vim +PluginInstall +qall"
-alias ls="ls -G --color"
 alias less="less -r" # support coloring
 alias grep="grep --color=auto"
 #Activate a virtualenv
@@ -50,6 +49,7 @@ if [[ "$(uname)" == "Linux" ]]; then
     # Linux specifics
     alias grep="grep --color=auto"
     alias gcc11="scl enable devtoolset-2 bash"
+    alias ls="ls -G --color"
 elif [[ "$(uname)" == "Darwin" ]]; then
     # Mac specifics
     alias killcassandra="kill -9 $(ps aux  | grep cassandra | grep java | awk '{ print $2 }'); sleep 1; ps aux | grep cassandra"
@@ -59,6 +59,7 @@ elif [[ "$(uname)" == "Darwin" ]]; then
     ### END ###
     alias newport_weather="weather \"Newport Beach\""
     alias irvine_weather="weather \"Irvine\""
+    alias ls="ls -G"
 
     alias licmerge="pushd ~/workspace/support; git pull; git checkout master; git merge origin/development; git push"
     function flushdns()
