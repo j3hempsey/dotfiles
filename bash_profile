@@ -44,6 +44,7 @@ elif [[ "$(uname)" == "Darwin" ]]; then
     # run date script
     ~/workspace/proxy_scripts/set_date.sh
 fi
+[[ -f ~/dotfiles/tmux/tmux_scripts ]] && source ~/dotfiles/tmux/tmux_scripts
 export GRADLE_HOME=/opt/gradle
 export GROOVY_HOME=/opt/groovy
 
