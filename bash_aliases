@@ -26,11 +26,11 @@ gpip(){
 
 function find_file()
 {
-    "find . -type f | grep $1"
+    find . -type f | grep "$1"
 }
 function find_in_file() 
 {
-    "find . -type f | xargs grep $1"
+    find . -type f | xargs grep -n --color "$1"
 }
 alias update_vim="vim +PluginInstall +qall"
 alias less="less -r" # support coloring
@@ -43,6 +43,7 @@ alias glogoneline="git log --oneline --no-merges"
 alias glog1="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)'"
 alias pxssh="ssh -o ProxyCommand='nc -x localhost:1080 %h %p'"
 alias pxscp="scp -o ProxyCommand='nc -x localhost:1080 %h %p'"
+alias regen_cscope="find /root/mount/wtcp/ -name \"*.c\" -o -name \"*.h\" -o -name \"*.cpp\" -o -name \"*.cc\" > /root/mount/wtcp/cscope.files && pushd /root/mount/wtcp/; cscope -b; export CSCOPE_DB=/roout/mount/wtcp/cscope.out; popd;"
 
 # OS specific
 if [[ "$(uname)" == "Linux" ]]; then

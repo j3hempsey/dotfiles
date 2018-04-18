@@ -6,6 +6,8 @@ if [[ "$(uname)" == "Linux" ]]; then
     # Linux specifics
     export PATH="$PATH:~/bin/"
     export PATH="$PATH:/usr/bin/gradle-2.7/bin"
+    source scl_source enable devtoolset-2
+    export CSCOPE_DB=/root/mount/wtcp/cscope.out
 elif [[ "$(uname)" == "Darwin" ]]; then
     # Mac specifics
     export ANDROID_HOME=/opt/android
