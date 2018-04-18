@@ -1,0 +1,55 @@
+# Borrowd from: https://github.com/kshenoy/dotfiles/blob/master/tmux/tmux_scripts
+unset -f _tmux_send_keys_other_panes_
+_tmux_send_keys_other_panes_() {                                                                                  # {{{1
+  local _pane_current=$(tmux display-message -p '#P')
+  for _pane in $(tmux list-panes -F '#P'); do
+    if (( "$_pane" != "$_pane_current" )); then
+      tmux send-keys -t ${_pane} "$@"
+    fi
+  done
+}
+
+unset -f _tmux_send_keys_all_panes_
+_tmux_send_keys_all_panes_() {                                                                                    # {{{1
+  for _pane in $(tmux list-panes -F '#P'); do
+    tmux send-keys -t ${_pane} "$@"
+  done
+}
+
+unset -f _tmux_send_keys_all_
+_tmux_send_keys_all_() {                                                                                          # {{{1
+  for _window in $(tmux list-windows -F '#I'); do
+    for _pane in $(tmux list-panes -t ${_window} -F '#P'); do
+      tmux send-keys -t ${_window}.${_pane} "$@"
+    done
+  done
+}
+
+unset -f tmux_pp
+tmux_pp() {                                                                                                       # {{{1
+  # We can't make the helper functions private because doing so will run tmux_pp in a subshell
+  # However, since we can't export variables from a subshell to its parent shell, tmux_update_env won't work
+
+  local cmd=$1; shift;
+
+  case $cmd in
+    sk)
+      ~/bin/tmux send-keys "$@"
+      ;;
+
+    send-keys-other-panes|skop)
+      _tmux_send_keys_other_panes_ "$@"
+      ;;
+
+    send-keys-all-panes|skap)
+      _tmux_send_keys_all_panes_ "$@"
+      ;;
+
+    send-keys-all|ska)
+      _tmux_send_keys_all_ "$@"
+      ;;
+
+    *)
+      command tmux ${cmd} "$@"
+  esac
+}
