@@ -89,13 +89,20 @@ set statusline+=%r      "read only flag
 set statusline+=%y      "filetype
 set statusline+=%=      "left/right separator
 set statusline+=\ %P    "percent through file
+" Set various colors
 hi Comment ctermfg=LightBlue
+hi Todo    ctermfg=Black ctermbg=LightBlue
 hi Search  ctermfg=DarkRed ctermbg=LightYellow
 hi String  ctermfg=DarkBlue
 hi Number  ctermfg=Red
+hi Visual  ctermfg=Black
+hi LineNr  ctermfg=LightGrey ctermbg=DarkGrey
+hi CursorLineNr ctermfg=LightGrey
+hi Statement ctermfg=DarkGreen
+hi Type    ctermfg=DarkCyan
 
 """ Key remapings """
-nmap <silent> <C-I> :NERDTreeToggle<CR>
+nmap <silent> <C-N> :NERDTreeToggle<CR>
 let g:ctrlp_map = '<c-p>'
 " Save file
 inoremap <C-s> <esc>:w<cr> 
