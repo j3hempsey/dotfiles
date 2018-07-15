@@ -81,8 +81,13 @@ txtrst='\[\e[0m\]'    # Text Reset
 #$txtgrn\u$txtwht:\$$txtrst "
 #PS2="$txtgrn>$txtrst "
 #elif [[ "$_UNIX_TYPE" == "Darwin" ]]; then
-PS1="$bldwht\t $undylw[\h \w]$txtrst\$(git-radar --bash --fetch)\n\
-$txtgrn\u$txtwht:\$$txtwht\[\e[m\] "
+
+PS1="$bldwht\t $undylw[\h \w]$txtrst\$(git-radar --bash --fetch)\n"
+if [[ "$(id -u)" -eq 0 ]]; then
+    PS1="$PS1$txtred\u$txtwht:\$$txtwht\[\e[m\] "
+else
+    PS1="$PS1$txtgrn\u$txtwht:\$$txtwht\[\e[m\] "
+fi
 PS2="$txtgrn>$txtwht "
 #fi
 #OLD
