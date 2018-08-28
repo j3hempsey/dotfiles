@@ -1,5 +1,6 @@
 export GIT_ASKPASS=./.gitpass
-export EDITOR="vim"
+export VISUAL=vim
+export EDITOR="$VISUAL"
 unset  SSH_ASKPASS
 
 if [[ "$(uname)" == "Linux" ]]; then
@@ -54,6 +55,4 @@ export GROOVY_HOME=/opt/groovy
 
 export GRADLE_HOME=/opt/gradle
 export GROOVY_HOME=/opt/groovy
-
-[[ -r ~/.bashrc ]] &&  source ~/.bashrc
 
