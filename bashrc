@@ -18,12 +18,16 @@ HISTFILESIZE=2000
 # Ignore rm -rf 
 HISTIGNORE="rm -rf \*"
 
-# import aliases
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
 if [[ "$_UNIX_TYPE" = "" ]]; then 
     export _UNIX_TYPE=$(uname)
+fi
+
+# import aliases
+if [[ -f ~/.bash_aliases ]]; then
+    . ~/.bash_aliases
+fi
+if [[ -f ~/.bash_profile && "$_UNIX_TYPE" != "Darwin" ]]; then
+    . ~/.bash_profile
 fi
 
 export PATH=$PATH:/usr/local/opt/openssl/bin:~/bin

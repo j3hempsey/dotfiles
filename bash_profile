@@ -1,5 +1,6 @@
 export GIT_ASKPASS=./.gitpass
-export EDITOR="vim"
+export VISUAL=vim
+export EDITOR="$VISUAL"
 unset  SSH_ASKPASS
 
 export GRADLE_HOME=/opt/gradle
@@ -52,7 +53,5 @@ elif [[ "$(uname)" == "Darwin" ]]; then
     ~/workspace/proxy_scripts/set_date.sh
 fi
 [[ -f ~/dotfiles/tmux/tmux_scripts ]] && source ~/dotfiles/tmux/tmux_scripts
-
-[[ -r ~/.bashrc ]] &&  source ~/.bashrc
 
 export PATH="$HOME/.cargo/bin:$PATH"
