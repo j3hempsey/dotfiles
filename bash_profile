@@ -2,6 +2,9 @@ export GIT_ASKPASS=./.gitpass
 export EDITOR="vim"
 unset  SSH_ASKPASS
 
+export GRADLE_HOME=/opt/gradle
+export GROOVY_HOME=/opt/groovy
+
 if [[ "$(uname)" == "Linux" ]]; then
     # Linux specifics
     export PATH="$PATH:~/bin/"
@@ -49,11 +52,7 @@ elif [[ "$(uname)" == "Darwin" ]]; then
     ~/workspace/proxy_scripts/set_date.sh
 fi
 [[ -f ~/dotfiles/tmux/tmux_scripts ]] && source ~/dotfiles/tmux/tmux_scripts
-export GRADLE_HOME=/opt/gradle
-export GROOVY_HOME=/opt/groovy
-
-export GRADLE_HOME=/opt/gradle
-export GROOVY_HOME=/opt/groovy
 
 [[ -r ~/.bashrc ]] &&  source ~/.bashrc
 
+export PATH="$HOME/.cargo/bin:$PATH"
