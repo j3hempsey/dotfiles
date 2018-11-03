@@ -10,7 +10,7 @@ if [[ "$(uname)" == "Linux" ]]; then
     # Linux specifics
     export PATH="$PATH:~/bin/"
     export PATH="$PATH:/usr/bin/gradle-2.7/bin"
-    if which scl_source > /dev/null 2&>1; then
+    if which scl_source > /dev/null 2>&1; then
         source scl_source enable devtoolset-2
     fi
     export CSCOPE_DB=/root/mount/wtcp/cscope.out
