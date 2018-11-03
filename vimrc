@@ -117,10 +117,10 @@ nnoremap <C-q> :q<cr>
 " Save and quit 
 nnoremap <C-w-q> :wq<cr>
 " Remap paging to smooth scrolling
-noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 3)<CR>
-noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 3)<CR>
-noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
-noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
+noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 5)<CR>
+noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 5)<CR>
+noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 5)<CR>
+noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 5)<CR>
 " Remap page up/down to use the scolling too
 noremap <silent> <PageUp> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
 noremap <silent> <PageDown> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
@@ -177,3 +177,10 @@ let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn)$',
   \ 'file': '\v\.(exe|so|dll|o|d|Td)$',
   \ }
+
+" Syntastic hurts vim on mac so do some fancy stuff to not hurt the mac
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
+nnoremap <C-w>e :SyntasticCheck<CR> :SyntasticToggleMode<CR>
+
