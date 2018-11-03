@@ -56,3 +56,6 @@ export GROOVY_HOME=/opt/groovy
 export GRADLE_HOME=/opt/gradle
 export GROOVY_HOME=/opt/groovy
 
+if [[ -f ~/.bashrc ]]; then
+    . ~/.bashrc
+fi
