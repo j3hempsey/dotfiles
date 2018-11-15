@@ -28,6 +28,9 @@ elif [[ "$(uname)" == "Darwin" ]]; then
     export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/"
     #ddgr browser setting 
     export BROWSER=w3m
+    # Disable JS compression when compiling Admin
+    export BADU_SKIP_JS=true
+
 
     ### From: https://hackercodex.com/guide/mac-osx-mavericks-10.9-configuration/
     # Set architecture flags
