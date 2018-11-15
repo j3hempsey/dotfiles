@@ -24,6 +24,10 @@ gpip(){
     PIP_REQUIRE_VIRTUALENV="" pip2.7 "$@"
 }
 
+gpip3(){
+### From: https://hackercodex.com/guide/python-development-environment-on-mac-osx/
+    PIP_REQUIRE_VIRTUALENV="" pip3 "$@"
+}
 function find_file()
 {
     find . -type f | grep "$1"
