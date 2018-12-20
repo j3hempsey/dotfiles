@@ -32,9 +32,14 @@ function find_file()
 {
     find . -type f | grep "$1"
 }
+
 function find_in_file() 
 {
-    find . -type f | xargs grep -n --color -- "$1"
+    #find . -type f | xargs grep -n --color "$1"
+    find . -type f -not \( -path ./.git -prune \) -exec grep -Iq . {} \; -and -print | xargs grep -n --color "$1";
+    # Don't include binary files
+    #find . -type f -not \( -path ./.git -prune \) -exec grep -Iq . {} \; -and -print | xargs grep -n --color "$1"; 
+    find . -type f | xargs grep -n --color "$1"
 }
 
 function jview()
@@ -73,6 +78,7 @@ function gtp_wireshark_filter()
 	fi
 }
 
+alias vi=vim
 alias update_vim="vim +PluginInstall +qall"
 alias less="less -r" # support coloring
 alias grep="grep -n --color=auto"
@@ -84,15 +90,17 @@ alias glogoneline="git log --oneline --no-merges"
 alias glog1="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)'"
 alias pxssh="ssh -o ProxyCommand='nc -x localhost:1080 %h %p'"
 alias pxscp="scp -o ProxyCommand='nc -x localhost:1080 %h %p'"
-alias regen_cscope="find /root/mount/wtcp/ -name \"*.c\" -o -name \"*.h\" -o -name \"*.cpp\" -o -name \"*.cc\" > /root/mount/wtcp/cscope.files && pushd /root/mount/wtcp/; cscope -b; export CSCOPE_DB=/roout/mount/wtcp/cscope.out; popd;"
-alias vi=vim
+alias regen_cscope="find /root/mount/wtcp/ -path */Framework-CRunnable -prune -o -path */Kernel/centos* -prune -o -path */usr/include/linux -prune -o -path lib/modules -prune -o -path */.pkg -prune -o -name \"*.c\" -o -name \"*.h\" -o -name \"*.cpp\" -o -name \"*.cc\" > /root/mount/wtcp/cscope.files && pushd /root/mount/wtcp/; cscope -b; export CSCOPE_DB=/root/mount/wtcp/cscope.out; popd;"
+alias dmake="make CC=\"distcc x86_64-redhat-linux-gcc\" CXX=\"distcc x86_64-redhat-linux-g++\""
+alias dcmake="make CC=\"ccache distcc x86_64-redhat-linux-gcc\" CXX=\"ccache distcc x86_64-redhat-linux-g++\""
+
 # OS specific
-if [[ "$(uname)" == "Linux" ]]; then
+if [[ "$_UNIX_TYPE" == "Linux" ]]; then
     # Linux specifics
     alias grep="grep --color=auto"
     alias gcc11="scl enable devtoolset-2 bash"
     alias ls="ls -G --color"
-elif [[ "$(uname)" == "Darwin" ]]; then
+elif [[ "$_UNIX_TYPE" == "Darwin" ]]; then
     # Mac specifics
     alias killcassandra="kill -9 $(ps aux  | grep cassandra | grep java | awk '{ print $2 }'); sleep 1; ps aux | grep cassandra"
     ### Mac show hidden files aliases ###
