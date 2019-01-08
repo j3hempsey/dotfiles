@@ -36,7 +36,7 @@ function find_file()
 function find_in_file() 
 {
     #find . -type f | xargs grep -n --color "$1"
-    find . -type f -not \( -path ./.git -prune \) -exec grep -Iq . {} \; -and -print | xargs grep -ne --color "$1";
+    find . -type f -not \( -path ./.git -prune \) -exec grep -Iq . {} \; -and -print | xargs grep -n --color "$@"
     # Don't include binary files
     #find . -type f -not \( -path ./.git -prune \) -exec grep -Iq . {} \; -and -print | xargs grep -n --color "$1"; 
     #find . -type f | xargs grep -n --color "$1"
