@@ -2,6 +2,7 @@ tags
 .DS_Store
 pylint.d/*.stats
 vim/bundle
+vim/undodir
 history.sqlite
 *.swp
 *.pyc
