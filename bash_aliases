@@ -78,6 +78,9 @@ function gtp_wireshark_filter()
 	fi
 }
 
+function cheat() {
+    curl cht.sh/$1
+}
 alias vi=vim
 alias update_vim="vim +PluginInstall +qall"
 alias less="less -r" # support coloring
