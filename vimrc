@@ -32,7 +32,7 @@ Bundle 'https://github.com/farmergreg/vim-lastplace.git'
 " Rust stuff
 Plugin 'rust-lang/rust.vim'
 " Powerline
-Bundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+"Bundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 " Viz undo
 " TODO: Figure it out https://sjl.bitbucket.io/gundo.vim/
 Bundle 'http://github.com/sjl/gundo.vim.git'
