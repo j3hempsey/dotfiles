@@ -29,7 +29,13 @@ Bundle 'https://github.com/tpope/vim-fugitive.git'
 Bundle 'docunext/closetag.vim'
 " Last cursor position
 Bundle 'https://github.com/farmergreg/vim-lastplace.git'
-
+" Rust stuff
+Plugin 'rust-lang/rust.vim'
+" Powerline
+"Bundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+" Viz undo
+" TODO: Figure it out https://sjl.bitbucket.io/gundo.vim/
+Bundle 'http://github.com/sjl/gundo.vim.git'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -184,3 +190,19 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
 nnoremap <C-w>e :SyntasticCheck<CR> :SyntasticToggleMode<CR>
 
+"Powerline settings
+set guifont=IBM\ Typeface:h15
+let g:Powerline_symbols = 'fancy'
+set encoding=utf-8
+set t_Co=256
+set fillchars+=stl:\ ,stlnc:\
+set term=xterm-256color
+set termencoding=utf-8
+
+" Undo stuff
+set undofile
+set undodir=~/.vim/undodir
+" Delete things in the undo directory older than 30 days
+let s:undos = split(globpath(&undodir, '*'), "\n")
+call filter(s:undos, 'getftime(v:val) < localtime() - (60 * 60 * 24 * 30)')
+call map(s:undos, 'delete(v:val)')

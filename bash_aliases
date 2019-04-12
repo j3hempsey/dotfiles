@@ -24,6 +24,10 @@ gpip(){
     PIP_REQUIRE_VIRTUALENV="" pip2.7 "$@"
 }
 
+gpip3(){
+### From: https://hackercodex.com/guide/python-development-environment-on-mac-osx/
+    PIP_REQUIRE_VIRTUALENV="" pip3 "$@"
+}
 function find_file()
 {
     find . -type f | grep "$1"
@@ -55,7 +59,21 @@ function macformat()
 		count=$(($count + 1))
 	done
 	echo "$result"
+}
 
+function gtp_wireshark_filter()
+{
+	if [ "$1" = "teid" ]; then
+		teid=$2
+		teidmacformat=$(macformat $teid)
+		printf '((s1ap.gTP_TEID == %s) or (gtp.teid == 0x%08x))\n' $teidmacformat $((0x$teid))
+    else 
+        echo "ERROR: invalid op. [teid <id>]"
+	fi
+}
+
+function cheat() {
+    curl cht.sh/$1
 }
 
 function gtp_wireshark_filter()
