@@ -6,7 +6,7 @@ unset  SSH_ASKPASS
 export GRADLE_HOME=/opt/gradle
 export GROOVY_HOME=/opt/groovy
 
-if [[ "$(uname)" == "Linux" ]]; then
+if [[ "$_UNIX_TYPE" == "Linux" ]]; then
     # Linux specifics
     export PATH="$PATH:~/bin/"
     export PATH="$PATH:/usr/bin/gradle-2.7/bin"
@@ -14,7 +14,7 @@ if [[ "$(uname)" == "Linux" ]]; then
         source scl_source enable devtoolset-2
     fi
     export CSCOPE_DB=/root/mount/wtcp/cscope.out
-elif [[ "$(uname)" == "Darwin" ]]; then
+elif [[ "$_UNIX_TYPE" == "Darwin" ]]; then
     # Mac specifics
     export ANDROID_HOME=/opt/android
     export ANDROID_NDK=/opt/android-ndk
