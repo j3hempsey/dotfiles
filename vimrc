@@ -31,6 +31,12 @@ Bundle 'docunext/closetag.vim'
 Bundle 'https://github.com/farmergreg/vim-lastplace.git'
 " Rust stuff
 Plugin 'rust-lang/rust.vim'
+" Ack wrapper
+Plugin 'mileszs/ack.vim'
+" Async tasks
+Bundle 'https://github.com/tpope/vim-dispatch.git'
+" Localvimrc
+Bundle 'https://github.com/embear/vim-localvimrc.git'
 " Powerline
 "Bundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 " Viz undo
@@ -62,12 +68,12 @@ set ignorecase		" Always case-insensitive
 set incsearch		" Searches for strings incrementally
  
 set autoindent		" Auto-indent new lines
-"set shiftwidth=4	" Number of auto-indent spaces
-set shiftwidth=3   " For badu...
-"set tabstop=4		" Number of spaces a tab counts for
-set tabstop=3
-"set softtabstop=4	" Number of spaces per Tab
-set softtabstop=3 
+set shiftwidth=4	" Number of auto-indent spaces
+"set shiftwidth=3   " For badu...
+set tabstop=4		" Number of spaces a tab counts for
+"set tabstop=3
+set softtabstop=4	" Number of spaces per Tab
+"set softtabstop=3 
 set smartindent		" Enable smart-indent
 set smarttab		" Enable smart-tabs
 "" Advanced
@@ -80,6 +86,7 @@ set wildmenu		" Visual autocomplete for command menu
 set lazyredraw		" Redraw only when we need to
 set foldmethod=syntax
 set foldlevelstart=10
+silent! so .vimlocal " Source a local 'vimrc' to override settings
 " https://github.com/joelhooks/dotfiles/blob/master/.vim/vimrc
 set scrolloff=8         "Start scrolling when we're 8 lines away from margins
 set sidescrolloff=15
@@ -108,6 +115,8 @@ hi Statement ctermfg=DarkGreen
 hi Type    ctermfg=DarkCyan
 
 """ Key remapings """
+" <Leader> = \ key
+nnoremap <Leader>a :Ack!<Space>
 nmap <silent> <C-N> :NERDTreeToggle<CR>
 let g:ctrlp_map = '<c-p>'
 " Save file
@@ -175,12 +184,16 @@ function! CompareLines(...)
    normal n
 endfunction
 
+" Ctrlp
 set wildignore+=*.so,*.swp,*.zip,*.o,*.ko,*.d,*.Td 
+" Unlimited files in cache
 let g:ctrlp_max_files=0
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_follow_symlinks=1
+" More results in search window
+let g:ctrlp_match_window= 'results:50' 
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$|\v[\/]centos\.debug$',
   \ 'file': '\v\.(exe|so|dll|o|d|Td)$',
   \ }
 
@@ -206,3 +219,10 @@ set undodir=~/.vim/undodir
 let s:undos = split(globpath(&undodir, '*'), "\n")
 call filter(s:undos, 'getftime(v:val) < localtime() - (60 * 60 * 24 * 30)')
 call map(s:undos, 'delete(v:val)')
+
+" Ack stuff
+let g:ack_use_dispatch=1
+" cnoreabbrev Ack Ack!
+
+" Localvimrc config options
+let g:localvimrc_name = [ '.localvimrc' ]
