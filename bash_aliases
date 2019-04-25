@@ -100,6 +100,7 @@ alias pxssh="ssh -o ProxyCommand='nc -x localhost:1080 %h %p'"
 alias pxscp="scp -o ProxyCommand='nc -x localhost:1080 %h %p'"
 alias regen_cscope="find /root/mount/wtcp/ -name \"*.c\" -o -name \"*.h\" -o -name \"*.cpp\" -o -name \"*.cc\" > /root/mount/wtcp/cscope.files && pushd /root/mount/wtcp/; cscope -b; export CSCOPE_DB=/roout/mount/wtcp/cscope.out; popd;"
 alias vi=vim
+alias unmount_unlocker="sudo diskutil unmount /Volumes/UNLOCKER"
 # OS specific
 if [[ "$(uname)" == "Linux" ]]; then
     # Linux specifics
@@ -144,5 +145,6 @@ elif [[ "$(uname)" == "Darwin" ]]; then
     alias ping="prettyping"
     alias cat="bat"
     alias diff="diff-so-fancy"
+    alias devvm="bash -x $HOME/workspace/proxy_scripts/set_date.sh && ssh devvm"
 fi
 
