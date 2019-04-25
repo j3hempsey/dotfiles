@@ -228,6 +228,7 @@ let g:ack_use_dispatch=1
 
 " Localvimrc config options
 let g:localvimrc_name = [ '.localvimrc' ]
+let g:localvimrc_ask = 0
 
 "Powerline settings
 set guifont=IBM\ Typeface:h15
