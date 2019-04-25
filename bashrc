@@ -29,9 +29,9 @@ fi
 # if [[ -f ~/.bash_profile ]]; then
 #     . ~/.bash_profile
 # fi
-# if [[ -f ~/.bash_profile && "$_UNIX_TYPE" == "Darwin" ]]; then
-#     . ~/.bash_profile
-# fi
+if [[ -f ~/.bash_profile && "$_UNIX_TYPE" == "Darwin" ]]; then
+    . ~/.bash_profile
+fi
 
 export PATH=$PATH:/usr/local/opt/openssl/bin:~/bin
 export PATH=$PATH:$HOME/.git-radar

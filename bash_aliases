@@ -64,7 +64,21 @@ function macformat()
 		count=$(($count + 1))
 	done
 	echo "$result"
+}
 
+function gtp_wireshark_filter()
+{
+	if [ "$1" = "teid" ]; then
+		teid=$2
+		teidmacformat=$(macformat $teid)
+		printf '((s1ap.gTP_TEID == %s) or (gtp.teid == 0x%08x))\n' $teidmacformat $((0x$teid))
+    else 
+        echo "ERROR: invalid op. [teid <id>]"
+	fi
+}
+
+function cheat() {
+    curl cht.sh/$1
 }
 
 function gtp_wireshark_filter()
@@ -120,7 +134,8 @@ alias pxssh="ssh -o ProxyCommand='nc -x localhost:1080 %h %p'"
 alias pxscp="scp -o ProxyCommand='nc -x localhost:1080 %h %p'"
 alias dmake="make CC=\"distcc x86_64-redhat-linux-gcc\" CXX=\"distcc x86_64-redhat-linux-g++\""
 alias dcmake="make CC=\"ccache distcc x86_64-redhat-linux-gcc\" CXX=\"ccache distcc x86_64-redhat-linux-g++\""
-
+alias vi=vim
+alias unmount_unlocker="sudo diskutil unmount /Volumes/UNLOCKER"
 # OS specific
 if [[ "$_UNIX_TYPE" == "Linux" ]]; then
     # Linux specifics
@@ -165,5 +180,6 @@ elif [[ "$_UNIX_TYPE" == "Darwin" ]]; then
     alias ping="prettyping"
     alias cat="bat"
     alias diff="diff-so-fancy"
+    alias devvm="bash -x $HOME/workspace/proxy_scripts/set_date.sh && ssh devvm"
 fi
 

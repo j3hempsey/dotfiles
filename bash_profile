@@ -31,7 +31,6 @@ elif [[ "$(uname)" == "Darwin" ]]; then
     # Disable JS compression when compiling Admin
     export BADU_SKIP_JS=true
 
-
     ### From: https://hackercodex.com/guide/mac-osx-mavericks-10.9-configuration/
     # Set architecture flags
     export ARCHFLAGS="-arch x86_64"

@@ -42,8 +42,10 @@ Bundle 'https://github.com/embear/vim-localvimrc.git'
 " Viz undo
 " TODO: Figure it out https://sjl.bitbucket.io/gundo.vim/
 Bundle 'http://github.com/sjl/gundo.vim.git'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
+" ========= END ======== "
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
@@ -226,3 +228,13 @@ let g:ack_use_dispatch=1
 
 " Localvimrc config options
 let g:localvimrc_name = [ '.localvimrc' ]
+
+"Powerline settings
+set guifont=IBM\ Typeface:h15
+let g:Powerline_symbols = 'fancy'
+set encoding=utf-8
+set t_Co=256
+set fillchars+=stl:\ ,stlnc:\
+set term=xterm-256color
+set termencoding=utf-8
+
