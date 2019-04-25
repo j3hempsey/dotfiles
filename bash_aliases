@@ -81,6 +81,31 @@ function gtp_wireshark_filter()
 function cheat() {
     curl cht.sh/$1
 }
+
+function regen_cscope() {
+   KERNEL_DIR="Kernel"
+   find /root/mount/wtcp/ -path */Framework-CRunnable -prune -o   \
+      -path "*/$KERNEL_DIR/centos*" -prune -o                     \
+      -path "tmp*" -prune -o                                      \
+	   -path "*/$KERNEL_DIR/Documentation*" -prune -o              \
+      -path "*/$KERNEL_DIR/scripts*" -prune -o                    \
+	   -path "*/$KERNEL_DIR/drivers*" -prune -o                    \
+      -path "*/usr/include/linux" -prune -o                       \
+      -path lib/modules -prune -o                                 \
+      -path "*/.pkg" -prune -o                                    \
+      -name "*.[chxsS]" -o -name "*.cpp" -o -name "*.cc"          \
+      > /root/mount/wtcp/cscope.files 
+   pushd /root/mount/wtcp/ 
+   # The -b flag tells Cscope to just build the database, and not launch the Cscope GUI. 
+   # The -q causes an additional, 'inverted index' file to be created, which makes 
+   # searches run much faster for large databases. Finally, -k sets Cscope's 'kernel' mode
+   # it will not look in /usr/include for any header files that are #included in your source files 
+   # JH: -q seems to cause some issues when using vim to jump to symbol
+   cscope -b -k
+   export CSCOPE_DB=/root/mount/wtcp/cscope.out;
+   popd
+}
+
 alias vi=vim
 alias update_vim="vim +PluginInstall +qall"
 alias less="less -r" # support coloring
@@ -93,7 +118,6 @@ alias glogoneline="git log --oneline --no-merges"
 alias glog1="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)'"
 alias pxssh="ssh -o ProxyCommand='nc -x localhost:1080 %h %p'"
 alias pxscp="scp -o ProxyCommand='nc -x localhost:1080 %h %p'"
-alias regen_cscope="find /root/mount/wtcp/ -path */Framework-CRunnable -prune -o -path */Kernel/centos* -prune -o -path */usr/include/linux -prune -o -path lib/modules -prune -o -path */.pkg -prune -o -name \"*.c\" -o -name \"*.h\" -o -name \"*.cpp\" -o -name \"*.cc\" > /root/mount/wtcp/cscope.files && pushd /root/mount/wtcp/; cscope -b; export CSCOPE_DB=/root/mount/wtcp/cscope.out; popd;"
 alias dmake="make CC=\"distcc x86_64-redhat-linux-gcc\" CXX=\"distcc x86_64-redhat-linux-g++\""
 alias dcmake="make CC=\"ccache distcc x86_64-redhat-linux-gcc\" CXX=\"ccache distcc x86_64-redhat-linux-g++\""
 
