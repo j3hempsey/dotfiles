@@ -29,7 +29,7 @@ fi
 # if [[ -f ~/.bash_profile ]]; then
 #     . ~/.bash_profile
 # fi
-if [[ -f ~/.bash_profile && "$_UNIX_TYPE" == "Darwin" ]]; then
+if [[ -f ~/.bash_profile && "$_UNIX_TYPE" == "Darwin"  && -z "$_GUARD_BASH_PROFILE_" ]]; then
     . ~/.bash_profile
 fi
 

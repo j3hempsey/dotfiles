@@ -1,3 +1,4 @@
+export _GUARD_BASH_PROFILE_=1
 export GIT_ASKPASS=./.gitpass
 export VISUAL=vim
 export EDITOR="$VISUAL"
