@@ -33,9 +33,6 @@ if [[ -f ~/.bash_profile && "$_UNIX_TYPE" == "Darwin"  && -z "$_GUARD_BASH_PROFI
     . ~/.bash_profile
 fi
 
-export PATH=$PATH:/usr/local/opt/openssl/bin:~/bin
-export PATH=$PATH:$HOME/.git-radar
-
 # pip should only run if there is a virtualenv currently activated
 export PIP_REQUIRE_VIRTUALENV=true
 
