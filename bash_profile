@@ -60,4 +60,7 @@ fi
 if [[ -f ~/.bashrc ]]; then
     . ~/.bashrc
 fi
-export PATH="$HOME/.cargo/bin:$PATH"
+
+export PATH=$PATH:/usr/local/opt/openssl/bin:~/bin
+export PATH=$PATH:$HOME/.git-radar
+export PATH="$HOME/go/bin/:$HOME/.cargo/bin:$PATH"
