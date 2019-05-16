@@ -1,4 +1,4 @@
-export _GUARD_BASH_PROFILE_=1
+_GUARD_BASH_PROFILE_=1
 export GIT_ASKPASS=./.gitpass
 export VISUAL=vim
 export EDITOR="$VISUAL"
@@ -37,8 +37,6 @@ elif [[ "$_UNIX_TYPE" == "Darwin" ]]; then
     export ARCHFLAGS="-arch x86_64"
     # Ensure user-installed binaries take precedence
     export PATH=/usr/local/bin:/usr/local/sbin:$PATH:~/bin/
-    # Load .bashrc if it exists
-    test -f ~/.bashrc && source ~/.bashrc
 
     if [ -f $(brew --prefix)/etc/bash_completion ]; then
             source $(brew --prefix)/etc/bash_completion
@@ -57,10 +55,11 @@ elif [[ "$_UNIX_TYPE" == "Darwin" ]]; then
 fi
 [[ -f ~/dotfiles/tmux/tmux_scripts ]] && source ~/dotfiles/tmux/tmux_scripts
 
+export PATH="$PATH:/usr/local/opt/openssl/bin:~/bin"
+export PATH="$PATH:$HOME/.git-radar"
+export PATH="$HOME/go/bin/:$HOME/.cargo/bin:$PATH"
+
+# Always last - allow entry from .bashrc or .bash_profile 
 if [[ -f ~/.bashrc ]]; then
     . ~/.bashrc
 fi
-
-export PATH=$PATH:/usr/local/opt/openssl/bin:~/bin
-export PATH=$PATH:$HOME/.git-radar
-export PATH="$HOME/go/bin/:$HOME/.cargo/bin:$PATH"
