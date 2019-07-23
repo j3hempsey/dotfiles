@@ -181,5 +181,6 @@ elif [[ "$_UNIX_TYPE" == "Darwin" ]]; then
     alias cat="bat"
     alias diff="diff-so-fancy"
     alias devvm="bash -x $HOME/workspace/proxy_scripts/set_date.sh && ssh devvm"
+    alias vmdates="$HOME/workspace/proxy_scripts/set_date.sh vmclient; $HOME/workspace/proxy_scripts/set_date.sh vmproxy; $HOME/workspace/proxy_scripts/set_date.sh vmserver"
 fi
 
