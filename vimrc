@@ -78,6 +78,9 @@ set softtabstop=4	" Number of spaces per Tab
 "set softtabstop=3 
 set smartindent		" Enable smart-indent
 set smarttab		" Enable smart-tabs
+" Tab completion more BASH-like
+set wildmode=longest,list,full
+set wildmenu
 "" Advanced
 set ruler			" Show row and column ruler information 
 set foldmethod=syntax " Set fold ability on syntax
