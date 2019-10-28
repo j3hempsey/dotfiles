@@ -134,8 +134,8 @@ alias pxssh="ssh -o ProxyCommand='nc -x localhost:1080 %h %p'"
 alias pxscp="scp -o ProxyCommand='nc -x localhost:1080 %h %p'"
 alias dmake="make CC=\"distcc x86_64-redhat-linux-gcc\" CXX=\"distcc x86_64-redhat-linux-g++\""
 alias dcmake="make CC=\"ccache distcc x86_64-redhat-linux-gcc\" CXX=\"ccache distcc x86_64-redhat-linux-g++\""
-alias vi=vim
-alias unmount_unlocker="sudo diskutil unmount /Volumes/UNLOCKER"
+alias vi="vim"
+#alias ack="ack --pager=\"less -r\""
 # OS specific
 if [[ "$_UNIX_TYPE" == "Linux" ]]; then
     # Linux specifics
@@ -182,5 +182,6 @@ elif [[ "$_UNIX_TYPE" == "Darwin" ]]; then
     alias diff="diff-so-fancy"
     alias devvm="bash -x $HOME/workspace/proxy_scripts/set_date.sh && ssh devvm"
     alias vmdates="$HOME/workspace/proxy_scripts/set_date.sh vmclient; $HOME/workspace/proxy_scripts/set_date.sh vmproxy; $HOME/workspace/proxy_scripts/set_date.sh vmserver"
+    alias unmount_unlocker="sudo diskutil unmount /Volumes/UNLOCKER"
 fi
 
