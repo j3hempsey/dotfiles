@@ -1,5 +1,6 @@
 #
 # ~/.bashrc
+# vim: filetype=sh
 #
 
 # If not running interactively, don't do anything
