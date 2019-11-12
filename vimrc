@@ -81,6 +81,7 @@ set smarttab		" Enable smart-tabs
 " Tab completion more BASH-like
 set wildmode=longest,list,full
 set wildmenu
+set modeline
 "" Advanced
 set ruler			" Show row and column ruler information 
 set foldmethod=syntax " Set fold ability on syntax
