@@ -107,7 +107,9 @@ set statusline+=%m      "modified flag
 set statusline+=%r      "read only flag
 set statusline+=%y      "filetype
 set statusline+=%=      "left/right separator
+set statusline+=%r%=%{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}%k
 set statusline+=\ %P    "percent through file
+"set statusline+=
 " Set various colors
 hi Comment ctermfg=LightBlue
 hi Todo    ctermfg=Black ctermbg=LightBlue
