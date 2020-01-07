@@ -22,12 +22,12 @@ function baduscp()
 
 gpip(){
 ### From: https://hackercodex.com/guide/python-development-environment-on-mac-osx/
-    PIP_REQUIRE_VIRTUALENV="" pip2.7 "$@"
+    PIP_REQUIRE_VIRTUALENV="" pip2.7 --user "$@"
 }
 
 gpip3(){
 ### From: https://hackercodex.com/guide/python-development-environment-on-mac-osx/
-    PIP_REQUIRE_VIRTUALENV="" pip3 "$@"
+    PIP_REQUIRE_VIRTUALENV="" pip3 --user "$@"
 }
 function find_file()
 {

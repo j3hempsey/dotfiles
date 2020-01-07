@@ -9,7 +9,7 @@
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
 # List of files/folders to symlink in homedir
-files=(bashrc screenrc bash_aliases bash_profile vimrc vim tmux.conf git-radar conkyrc) 
+files=(bashrc screenrc bash_aliases bash_profile vimrc vim tmux.conf git-radar conkyrc gitignore_global) 
 
 ##########
 
@@ -42,4 +42,17 @@ echo "Installing vim plugins"
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
 echo "...done"
+
+read -r -p "Setup Git config? [y/N] " response
+case "$response" in
+    [yY][eE][sS]|[yY])
+        echo "Setting up Git"
+        git config --global commit.template ~/.gitmessage.txt
+        git config --global core.editor vim
+        echo "...done"
+        ;;
+    *)
+        echo "Not setting up Git"
+        ;;
+esac
 
