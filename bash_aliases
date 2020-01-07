@@ -143,6 +143,10 @@ function glogbranchonly()
    fi
    glog $1 --not $(git for-each-ref --format='%(refname)' refs/heads/ | grep -v "refs/heads/$1") 
 }
+function ttyusb()
+{
+    sudo cu -s 115200 -l "/dev/ttyUSB$1"
+}
 #alias ack="ack --pager=\"less -r\""
 # OS specific
 if [[ "$_UNIX_TYPE" == "Linux" ]]; then
