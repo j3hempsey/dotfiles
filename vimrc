@@ -90,7 +90,6 @@ set undolevels=1000	" Number of undo levels
 set backspace=indent,eol,start	" Backspace behaviour
 set wildmenu		" Visual autocomplete for command menu
 set lazyredraw		" Redraw only when we need to
-set foldmethod=syntax
 set foldlevelstart=10
 silent! so .vimlocal " Source a local 'vimrc' to override settings
 " https://github.com/joelhooks/dotfiles/blob/master/.vim/vimrc
@@ -109,6 +108,7 @@ set statusline+=%y      "filetype
 set statusline+=%=      "left/right separator
 set statusline+=%r%=%{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}%k
 set statusline+=\ %P    "percent through file
+au FileType gitcommit setlocal tw=72        " Set linewrap in git commit messages only
 "set statusline+=
 " Set various colors
 hi Comment ctermfg=LightBlue
