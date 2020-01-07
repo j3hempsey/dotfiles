@@ -47,8 +47,10 @@ read -r -p "Setup Git config? [y/N] " response
 case "$response" in
     [yY][eE][sS]|[yY])
         echo "Setting up Git"
+        git config --global user.name "Justin Hempsey"
         git config --global commit.template ~/.gitmessage.txt
         git config --global core.editor vim
+        git config --global merge.conflictStyle diff3
         echo "...done"
         ;;
     *)
