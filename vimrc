@@ -61,7 +61,7 @@ set visualbell	   	" Use visual bell (no beeping)
 set cursorline		" Highlight current line
 syntax on
 set showcmd			" Show information about the command you're running
-set expandtab		" Insert spaces instead of tabs
+set noexpandtab		" Insert spaces instead of tabs
 
 set incsearch		" Search as charecters are entered
 set hlsearch		" Highlight all search results
@@ -207,8 +207,9 @@ let g:ctrlp_custom_ignore = {
 
 " Syntastic hurts vim on mac so do some fancy stuff to not hurt the mac
 let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_w = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
+" let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
 
 "Powerline settings
 set guifont=IBM\ Typeface:h15
