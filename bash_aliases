@@ -145,7 +145,7 @@ function glogbranchonly()
 }
 function ttyusb()
 {
-    sudo cu -s 115200 -l "/dev/ttyUSB$1"
+    cu -s 115200 -l "/dev/ttyUSB$1"
 }
 #alias ack="ack --pager=\"less -r\""
 # OS specific
