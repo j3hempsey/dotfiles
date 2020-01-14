@@ -16,6 +16,8 @@ if [[ "$_UNIX_TYPE" == "Linux" ]]; then
     #     source scl_source enable devtoolset-7
     # fi
     # export CSCOPE_DB=/root/mount/wtcp/cscope.out
+	# Key repeat settings
+	# exec --no-startup-id xset r rate 300 35 # Set initial delay 300ms, repeat 35ms
 elif [[ "$_UNIX_TYPE" == "Darwin" ]]; then
     # Mac specifics
     export ANDROID_HOME=/opt/android
