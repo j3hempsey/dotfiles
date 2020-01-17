@@ -6,6 +6,16 @@
 " plus some keyboard mappings that I've found useful.
 "
 " USAGE: 
+" -- vim 8:     Stick this file in your ~/.vim/plugin directory (or in a
+"               'plugin' directory in some other directory that is in your
+"               'runtimepath'.
+"               NOTE: running an old version of this file and getting:
+"				"E568: duplicate cscope database not added." when opening files
+"				can be solved by uncommenting the "set nocscopeversbose" at 
+"				the top of this file. These errors are caused because vim 8 
+"				will load the cscope DB for you and this script then tries to 
+"				load it as well.
+"
 " -- vim 6:     Stick this file in your ~/.vim/plugin directory (or in a
 "               'plugin' directory in some other directory that is in your
 "               'runtimepath'.
@@ -28,6 +38,8 @@
 " when it was compiled.  If it wasn't, time to recompile vim... 
 if has("cscope")
 
+    " Vim 8: Disable show msg when any other cscope db added
+    " set nocscopeverbose
     """"""""""""" Standard cscope/vim boilerplate
 
     " use both cscope and ctag for 'ctrl-]', ':ta', and 'vim -t'
@@ -38,12 +50,12 @@ if has("cscope")
     set csto=0
 
     " add any cscope database in current directory
-    if filereadable("cscope.out")
-        cs add cscope.out  
-    " else add the database pointed to by environment variable 
-    elseif $CSCOPE_DB != ""
-        cs add $CSCOPE_DB
-    endif
+    " if filereadable("cscope.out")
+    "     cs add cscope.out  
+    " " else add the database pointed to by environment variable 
+    " elseif $CSCOPE_DB != ""
+    "     cs add $CSCOPE_DB
+    " endif
 
     " show msg when any other cscope db added
     set cscopeverbose  
