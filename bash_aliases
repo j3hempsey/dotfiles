@@ -1,21 +1,21 @@
 # vim: filetype=sh
 # Aliases for all OSes
-function contssh() 
+contssh() 
 {
 	while :; do sleep 1; ssh "$1"; done
 }
 
-function workflow()
+workflow()
 {
 	source workspace.sh "$1"
 }
 
-function badussh()
+badussh()
 {
 	ssh -o "StrictHostKeyChecking no" -xYi ~/.ssh/badu_we_id_rsa root@"$1"
 }
 
-function baduscp()
+baduscp()
 {
     scp -o "StrictHostKeyChecking no" -i ~/.ssh/badu_we_id_rsa "$@"
 }
@@ -29,12 +29,12 @@ gpip3(){
 ### From: https://hackercodex.com/guide/python-development-environment-on-mac-osx/
     PIP_REQUIRE_VIRTUALENV="" pip3 "$@"
 }
-function find_file()
+find_file()
 {
     find . -type f | grep "$1"
 }
 
-function find_in_file() 
+find_in_file() 
 {
     #find . -type f | xargs grep -n --color "$1"
     find . -type f -not \( -path ./.git -prune \) -exec grep -Iq . {} \; -and -print | xargs grep -n --color "$@"
@@ -43,12 +43,12 @@ function find_in_file()
     #find . -type f | xargs grep -n --color "$1"
 }
 
-function jview()
+jview()
 {
     jira view WTCP-"$1"
 }
 
-function macformat()
+macformat()
 {
 	local teid=$1
 	result=""
@@ -67,7 +67,7 @@ function macformat()
 	echo "$result"
 }
 
-function gtp_wireshark_filter()
+gtp_wireshark_filter()
 {
 	if [ "$1" = "teid" ]; then
 		teid=$2
@@ -78,11 +78,11 @@ function gtp_wireshark_filter()
 	fi
 }
 
-function cheat() {
+cheat() {
     curl cht.sh/$1
 }
 
-function gtp_wireshark_filter()
+gtp_wireshark_filter()
 {
 	if [ "$1" = "teid" ]; then
 		teid=$2
@@ -93,7 +93,7 @@ function gtp_wireshark_filter()
 	fi
 }
 
-function cheat() {
+cheat() {
     curl cht.sh/$1
 }
 
@@ -156,7 +156,7 @@ alias dmake="make CC=\"distcc x86_64-redhat-linux-gcc\" CXX=\"distcc x86_64-redh
 alias dcmake="make CC=\"ccache distcc x86_64-redhat-linux-gcc\" CXX=\"ccache distcc x86_64-redhat-linux-g++\""
 alias poky="cd ~/workspace/gbxv2/ && TEMPLATECONT=./meta-gbxv2/conf/ source poky/oe-init-build-env"
 
-function glogbranchonly() 
+glogbranchonly() 
 {
    if [[ -z "$1" || "$1" == "" ]]; then
        echo "ERROR: Must supply branch name."
@@ -164,7 +164,7 @@ function glogbranchonly()
    fi
    glog $1 --not $(git for-each-ref --format='%(refname)' refs/heads/ | grep -v "refs/heads/$1") 
 }
-function ttyusb()
+ttyusb()
 {
     cu -s 115200 -l "/dev/ttyUSB$1"
 }
@@ -187,14 +187,14 @@ elif [[ "$_UNIX_TYPE" == "Darwin" ]]; then
     alias ls="ls -G"
 
     alias licmerge="pushd ~/workspace/support; git pull; git checkout master; git merge origin/development; git push"
-    function flushdns()
+    flushdns()
     {
         sudo killall -HUP mDNSResponder
     #    sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist
     #	sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist
     }
 
-    function run_on_mgrnodes()
+    run_on_mgrnodes()
     {
         if [[ -z "$1" ]]; then 
             echo "ERROR: Must supply a command to run."
@@ -205,7 +205,7 @@ elif [[ "$_UNIX_TYPE" == "Darwin" ]]; then
         fi
     }
 
-    function weather()
+    weather()
     {
         curl -s "wttr.in/${1/ /%20}"
     }
