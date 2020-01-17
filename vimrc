@@ -246,3 +246,4 @@ set fillchars+=stl:\ ,stlnc:\
 set term=xterm-256color
 set termencoding=utf-8
 
+autocmd FileType gitcommit call setpos('.', [0, 1, 1, 0])
