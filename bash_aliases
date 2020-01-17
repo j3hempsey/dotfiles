@@ -97,7 +97,27 @@ function cheat() {
     curl cht.sh/$1
 }
 
-function regen_cscope() {
+regen_cscope() {
+	find . \
+		-path "*/$kernel_dir/centos*" -prune -o                     \
+		-path "tmp*" -prune -o                                      \
+		-path "*/$kernel_dir/documentation*" -prune -o              \
+		-path "*/$kernel_dir/scripts*" -prune -o                    \
+		-path "*/$kernel_dir/drivers*" -prune -o                    \
+		-path "*/usr/include/linux" -prune -o                       \
+		-path lib/modules -prune -o                                 \
+		-path "*/.pkg" -prune -o                                    \
+		-name "*.[chxss]" -o -name "*.cpp" -o -name "*.cc"          \
+		> cscope.files 
+		# The -b flag tells Cscope to just build the database, and not launch the Cscope GUI. 
+		# The -q causes an additional, 'inverted index' file to be created, which makes 
+		# searches run much faster for large databases. Finally, -k sets Cscope's 'kernel' mode
+		# it will not look in /usr/include for any header files that are #included in your source files 
+		# JH: -q seems to cause some issues when using vim to jump to symbol
+		cscope -b -k
+}
+
+regen_cscope_devvm() {
    KERNEL_DIR="Kernel"
    find /root/mount/wtcp/ -path */Framework-CRunnable -prune -o   \
       -path "*/$KERNEL_DIR/centos*" -prune -o                     \
