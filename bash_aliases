@@ -82,28 +82,10 @@ cheat() {
     curl cht.sh/$1
 }
 
-gtp_wireshark_filter()
-{
-	if [ "$1" = "teid" ]; then
-		teid=$2
-		teidmacformat=$(macformat $teid)
-		printf '((s1ap.gTP_TEID == %s) or (gtp.teid == 0x%08x))\n' $teidmacformat $((0x$teid))
-    else 
-        echo "ERROR: invalid op. [teid <id>]"
-	fi
-}
-
-cheat() {
-    curl cht.sh/$1
-}
-
 regen_cscope() {
 	find . \
-		-path "*/$kernel_dir/centos*" -prune -o                     \
 		-path "tmp*" -prune -o                                      \
-		-path "*/$kernel_dir/documentation*" -prune -o              \
-		-path "*/$kernel_dir/scripts*" -prune -o                    \
-		-path "*/$kernel_dir/drivers*" -prune -o                    \
+		-path "documentation*" -prune -o              \
 		-path "*/usr/include/linux" -prune -o                       \
 		-path lib/modules -prune -o                                 \
 		-path "*/.pkg" -prune -o                                    \
@@ -139,6 +121,11 @@ regen_cscope_devvm() {
    cscope -b -k
    export CSCOPE_DB=/root/mount/wtcp/cscope.out;
    popd
+}
+
+ix () 
+{ 
+    curl -F 'f:1=<-' http://ix.io
 }
 
 alias vi="vim"
