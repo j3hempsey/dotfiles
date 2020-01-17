@@ -52,6 +52,7 @@ case "$response" in
         git config --global core.editor vim
         git config --global merge.conflictStyle diff3
 		git config --global core.excludesfile ~/.gitignore_global
+		git config --global color.ui true
         echo "...done"
         ;;
     *)
