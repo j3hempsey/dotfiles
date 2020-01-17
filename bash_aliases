@@ -22,12 +22,12 @@ function baduscp()
 
 gpip(){
 ### From: https://hackercodex.com/guide/python-development-environment-on-mac-osx/
-    PIP_REQUIRE_VIRTUALENV="" pip2.7 --user "$@"
+    PIP_REQUIRE_VIRTUALENV="" pip2.7 "$@"
 }
 
 gpip3(){
 ### From: https://hackercodex.com/guide/python-development-environment-on-mac-osx/
-    PIP_REQUIRE_VIRTUALENV="" pip3 --user "$@"
+    PIP_REQUIRE_VIRTUALENV="" pip3 "$@"
 }
 function find_file()
 {
@@ -121,7 +121,7 @@ function regen_cscope() {
    popd
 }
 
-alias vi=vim
+alias vi="vim"
 alias update_vim="vim +PluginInstall +qall"
 alias less="less -r" # support coloring
 alias grep="grep -n --color=auto"
@@ -134,7 +134,8 @@ alias pxssh="ssh -o ProxyCommand='nc -x localhost:1080 %h %p'"
 alias pxscp="scp -o ProxyCommand='nc -x localhost:1080 %h %p'"
 alias dmake="make CC=\"distcc x86_64-redhat-linux-gcc\" CXX=\"distcc x86_64-redhat-linux-g++\""
 alias dcmake="make CC=\"ccache distcc x86_64-redhat-linux-gcc\" CXX=\"ccache distcc x86_64-redhat-linux-g++\""
-alias vi="vim"
+alias poky="cd ~/workspace/gbxv2/ && TEMPLATECONT=./meta-gbxv2/conf/ source poky/oe-init-build-env"
+
 function glogbranchonly() 
 {
    if [[ -z "$1" || "$1" == "" ]]; then
