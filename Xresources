@@ -1,0 +1,15 @@
+!! Color theme
+!-----------------------------------------------------------------------
+!                         Xft settings
+!-----------------------------------------------------------------------
+
+Xft.dpi:                96
+Xft.autohint:           false
+Xft.antialias:          true
+Xft.rgba:               rgb
+Xft.hinting:            true
+Xft:hintstyle:          hintslight
+Xft.lcdfilter: lcddefault
+
+#include ".config/urxvt"
+#include "/home/jhempsey/.colors/linux"
