@@ -1,0 +1,37 @@
+#!/bin/sh
+revert () {
+    xset +dpms dpms 0 0 0
+}
+lock() {
+    xset +dpms dpms 0 0 2
+    scrot -d 1 /tmp/locking_screen.png
+    ffmpeg -loglevel quiet -i /tmp/locking_screen.png -i ~/Pictures/Wallpapers/lock_overlay.png -y -filter_complex "boxblur=5:1,overlay=(main_w-overlay_w-10):(main_h-overlay_h-10)" -vframes 1 /tmp/lock_screen.png
+    i3lock -i /tmp/lock_screen.png
+    revert
+}
+
+case "$1" in
+    lock)
+        lock
+        ;;
+    logout)
+        i3-msg exit
+        ;;
+    suspend)
+        lock && systemctl suspend
+        ;;
+    hibernate)
+        lock && systemctl hibernate
+        ;;
+    reboot)
+        systemctl reboot
+        ;;
+    shutdown)
+        systemctl poweroff
+        ;;
+    *)
+        echo "Usage: $0 {lock|logout|suspend|hibernate|reboot|shutdown}"
+        exit 2
+esac
+
+exit 0
