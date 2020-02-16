@@ -11,5 +11,12 @@ Xft.hinting:            true
 Xft:hintstyle:          hintslight
 Xft.lcdfilter: lcddefault
 
-#include ".config/urxvt"
+!-----------------------------------------------------------------------
+!                         xTerm settings
+!-----------------------------------------------------------------------
+xterm*termName: xterm-256color
+XTerm*locale: true
+Xterm*saveLines: 10000
+
+#include "/home/jhempsey/.config/urxvt"
 #include "/home/jhempsey/.colors/linux"
