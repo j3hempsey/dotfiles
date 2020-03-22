@@ -260,6 +260,25 @@ gaps outer 5 # Px to edge of screen - Additive to inner gap
 # Assign window mappings
 assign [class="^Steam$"] 9
 
+# Assign 0 by default to second screen, if not there will go back to primary
+workspace 10 output primary
+workspace 10 output HDMI-A-0
+
+# Mark windows
+# read 1 character and mark the current window with this character
+bindsym $mod+m exec i3-input -F 'mark %s' -l 1 -P 'Mark: '
+
+# read 1 character and go to the window with the character
+bindsym $mod+g exec i3-input -F '[con_mark="%s"] focus' -l 1 -P 'Goto: '
+
+# Move container(window) to monitor left/right
+bindsym $mod+Shift+greater move container to output right
+bindsym $mod+Shift+less move container to output left
+
+# Move workspace to monitor left/right
+bindsym $mod+greater move workspace to output right
+bindsym $mod+less move workspace to output left 
+
 ### RUN PROGRAMS ###
 # Lock screen after timeout
 #TODO: exec --no-startup-id xautolock -locker "./.config/i3/i3exit lock" -time 5 -detectsleep -notify 10
@@ -267,10 +286,12 @@ exec_always --no-startup-id xrdb -merge $HOME/.Xresources
 # Start compositor
 exec --no-startup-id compton -b --config $HOME/.config/compton/compton.conf
 # Fix key repeat/delay
-exec --no-startup-id xset r rate 300 35 # Set initial delay 300ms, repeat 35ms
+exec_always --no-startup-id xset r rate 300 35 # Set initial delay 300ms, repeat 35ms
 # Set background
 exec --no-startup-id feh --bg-fill $HOME/Nextcloud/Pictures/Mach\ 1\ -\ Random/IMG_20180315_180728.jpg
-exec_always --no-startup-id sleep .5 && polybar -c $HOME/.config/polybar/config mybar > /tmp/tmp.out 2>&1 
+# Setup displays
+exec --no-startup-id xrandr --output HDMI-A-0 --primary  --mode 2560x1440 --rate 60.00 --output DisplayPort-0 --mode 1920x1080 --rate 60.00 --right-of HDMI-A-0
+exec --no-startup-id sleep .5 && /bin/bash $HOME/dotfiles/bin/launch_polybar
 # Startup dunst
 exec --no-startup-id dunst -config $HOME/.config/dunst/dunstrc &
 # NextCloud startup
