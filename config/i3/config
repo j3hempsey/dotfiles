@@ -259,6 +259,7 @@ gaps outer 5 # Px to edge of screen - Additive to inner gap
 
 # Assign window mappings
 assign [class="^Steam$"] 9
+assign [class="^Slack$"] 10
 
 # Assign 0 by default to second screen, if not there will go back to primary
 workspace 10 output primary
