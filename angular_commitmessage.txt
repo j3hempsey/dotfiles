@@ -1,28 +1,28 @@
-- Title line
-    - <type>(<scope>): <subject>
-    - type is one of
-        - feat    : A new feature
-        - fix     : A bug fix 
-        - docs    : Documentation only changes
-        - style   : Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
-        - refactor: A code change that neither fixes a bug nor adds a feature
-        - perf    : A code change that improves performance
-        - test    : Adding missing or correcting existing tests
-        - chore   : Changes to the build process or auxiliary tools and libraries such as documentation generation
-    - scope specifies which component is affected
-    - subject is a short description
-        - use imperative present tense
-            - change not changed or changes
-        - do not capitalize
-        - no . at end 
-        - short
-            - aim for < 50 characters
-            - or if it must be longer < 72
-- Blank line
-- Body
-    - Explain what and why, not how 
-    - Wrap at 72 characters
-- Blank line
-- Footer
-    - links to issues
-    - other footnotes
+# - Title line
+#     - <type>(<scope>): <subject>
+#     - type is one of
+#         - feat    : A new feature
+#         - fix     : A bug fix 
+#         - docs    : Documentation only changes
+#         - style   : Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
+#         - refactor: A code change that neither fixes a bug nor adds a feature
+#         - perf    : A code change that improves performance
+#         - test    : Adding missing or correcting existing tests
+#         - chore   : Changes to the build process or auxiliary tools and libraries such as documentation generation
+#     - scope specifies which component is affected
+#     - subject is a short description
+#         - use imperative present tense
+#             - change not changed or changes
+#         - do not capitalize
+#         - no . at end 
+#         - short
+#             - aim for < 50 characters
+#             - or if it must be longer < 72
+# - Blank line
+# - Body
+#     - Explain what and why, not how 
+#     - Wrap at 72 characters
+# - Blank line
+# - Footer
+#     - links to issues
+#     - other footnotes
