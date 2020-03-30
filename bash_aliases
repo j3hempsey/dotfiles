@@ -106,6 +106,27 @@ regen_cscope() {
 		fi
 }
 
+regen_go_cscope() {
+	find . \
+		-path "tmp*" -prune -o                                      \
+		-path "documentation*" -prune -o							\
+		-path "*/usr/include/linux" -prune -o                       \
+		-path lib/modules -prune -o                                 \
+		-path "*/.pkg" -prune                                       \
+		-o -name "*.go"										        \
+		> cscope.files 
+		# The -b flag tells Cscope to just build the database, and not launch the Cscope GUI. 
+		# The -q causes an additional, 'inverted index' file to be created, which makes 
+		# searches run much faster for large databases. Finally, -k sets Cscope's 'kernel' mode
+		# it will not look in /usr/include for any header files that are #included in your source files 
+		# JH: -q seems to cause some issues when using vim to jump to symbol
+		if cscope -b -k; then
+			echo "Created cscope db"
+		else
+			echo "Failed to create cscope db"
+		fi
+}
+
 regen_cscope_devvm() {
    KERNEL_DIR="Kernel"
    find /root/mount/wtcp/ -path */Framework-CRunnable -prune -o   \
