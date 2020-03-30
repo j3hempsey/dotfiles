@@ -1,0 +1,52 @@
+#!/bin/bash
+#
+# Move this file to .git/hooks/ and make sure it is executable.
+# Commits will then fail if a go file is not properly formatted.
+
+# Don't use mapfile so this will work with bash 3 on macos
+confirm() {
+	#
+	# syntax: confirm [<prompt>]
+	#
+	# Prompts the user to enter Yes or No and returns 0/1.
+	local _prompt _response
+	exec < /dev/tty
+	if [ "$1" ]; then _prompt="$1"; else _prompt="Are you sure"; fi
+	_prompt="$_prompt [y/n] ?"
+
+	# Loop forever until the user enters a valid response (Y/N or Yes/No).
+	while true; do
+		read -r -p "$_prompt " _response
+		case "$_response" in
+			[Yy][Ee][Ss]|[Yy]) # Yes or Y (case-insensitive).
+				return 0
+				;;
+			[Nn][Oo]|[Nn])  # No or N.
+				return 1
+				;;
+			*) # Anything else (including a blank) is invalid.
+				;;
+		esac
+	done
+}
+
+while IFS= read -rd '' file; do
+	files+=("$file")
+done < <(git diff --cached --name-only --diff-filter=ACM -z '**.go')
+
+unformatted=$(gofmt -l "${files[@]}")
+
+commit=true
+for f in $unformatted; do
+	echo "=== > $f < gofmt $f ==="
+	if ! diff  "$f" <(gofmt "$f"); then
+		if confirm "Would you like to gofmt this file"; then
+			gofmt -w "$f" || commit=false
+			echo "$f" >> .commit
+		else
+			commit=false
+		fi
+	fi
+done
+[[ "$commit" == false ]] && echo "Bad gofmt" && exit 2
+exit 0

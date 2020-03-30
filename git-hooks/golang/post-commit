@@ -1,0 +1,11 @@
+#!/bin/bash
+if [[ -e .commit ]]; then  
+	while read -ra name; do
+		git add -u "$name"
+	done < .commit
+	rm -f .commit
+	# If you want the oppertunity to edit this has to be uncommented
+	# exec < /dev/tty
+	echo "Ammending commit with formatted files..."
+	git commit --amend --no-edit
+fi
