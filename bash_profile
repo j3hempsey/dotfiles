@@ -58,7 +58,7 @@ elif [[ "$_UNIX_TYPE" == "Darwin" ]]; then
 fi
 [[ -f ~/dotfiles/tmux/tmux_scripts ]] && source ~/dotfiles/tmux/tmux_scripts
 
-export PATH="$PATH:/usr/local/opt/openssl/bin:~/bin"
+export PATH="$PATH:/usr/local/opt/openssl/bin:~/bin:~/dotfiles/bin"
 export PATH="$PATH:$HOME/.git-radar"
 export PATH="$HOME/go/bin/:$HOME/.cargo/bin:$PATH"
 
