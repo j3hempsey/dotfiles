@@ -1,0 +1,11 @@
+#!/bin/bash
+declare -A outputs=(
+	[speakers]="alsa_output.pci-0000_31_00.3.analog-stereo"
+	[headphones]="alsa_output.usb-SteelSeries_SteelSeries_Arctis_5_00000000-00.iec958-stereo"
+)
+# pactl list sinks short can be useful for seeing sinks (audio outputs) that are available
+pacmd list-sink-inputs | awk '/index/ { print $2 }' | while read -r i; do
+	echo "Switching $i to ${outputs[$1]}"
+	pacmd move-sink-input "$i" "${outputs[$1]}"
+	pactl set-default-sink "${outputs[$1]}"
+done
