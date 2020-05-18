@@ -36,6 +36,7 @@ black-alt   = ${xrdb:color8}
 orange      = ${xrdb:color16}
 grey        = #666 
 bg          = #1B1C1B 
+foreground  = ${colors.blue-alt}
 ;${xrdb:color8}
 
 
@@ -96,7 +97,7 @@ modules-center = date
 ; Ethernet display only
 ;modules-right = pulseaudio cpu_temperature gpu_temperature cpu memory ethernet
 ; Wireless display only
-modules-right = pulseaudio cpu_temperature gpu_temperature cpu memory wlan
+modules-right = pulseaudio-control cpu_temperature gpu_temperature cpu memory wlan
 
 ;**********************************************************
 ;
@@ -344,7 +345,11 @@ thermal-zone = 0
 ; $ for i in /sys/class/hwmon/hwmon*/temp*_input; do echo "$(<$(dirname $i)/name): $(cat ${i%_*}_label 2>/dev/null || echo $(basename ${i%_*})) $(readlink -f $i)"; done
 ; to find path to desired file
 ; Default reverts to thermal zone setting
-hwmon-path = /sys/class/hwmon/hwmon0/temp2_input
+
+; JH: This is the path with no second NVMe drive
+; hwmon-path = /sys/class/hwmon/hwmon0/temp2_input
+; JH: With second NVMe drive
+hwmon-path = /sys/class/hwmon/hwmon2/temp2_input
 
 warn-temperature = 60
 
@@ -378,7 +383,11 @@ thermal-zone = 0
 ; $ for i in /sys/class/hwmon/hwmon*/temp*_input; do echo "$(<$(dirname $i)/name): $(cat ${i%_*}_label 2>/dev/null || echo $(basename ${i%_*})) $(readlink -f $i)"; done
 ; to find path to desired file
 ; Default reverts to thermal zone setting
-hwmon-path = /sys/class/hwmon/hwmon2/temp1_input
+
+; JH: This is the path with no second NVMe drive
+; hwmon-path = /sys/class/hwmon/hwmon2/temp1_input
+; JH: With second NVMe drive
+hwmon-path = /sys/class/hwmon/hwmon4/temp1_input
 
 warn-temperature = 60
 
@@ -427,6 +436,21 @@ format-prefix = 
 format-foreground = ${colors.green}
 format-prefix-foreground = ${colors.cyan}
 
+[module/pulseaudio-control]
+type = custom/script
+tail = true
+label = %output%
+format-underline = ${colors.blue}
+
+exec = ~/.config/polybar/scripts/polybar-pulseaudio-control/pulseaudio-control.bash listen
+click-right = exec pavucontrol &
+click-left = ~/.config/polybar/scripts/polybar-pulseaudio-control/pulseaudio-control.bash next-sink
+click-middle = ~/.config/polybar/scripts/polybar-pulseaudio-control/pulseaudio-control.bash togmute
+scroll-up = ~/.config/polybar/scripts/polybar-pulseaudio-control/pulseaudio-control.bash up
+scroll-down = ~/.config/polybar/scripts/polybar-pulseaudio-control/pulseaudio-control.bash down
+label-padding = 2
+label-foreground = ${colors.foreground}
+
 [module/pulseaudio]
 type = internal/pulseaudio
 
@@ -469,6 +493,10 @@ ramp-volume-0 = " "
 ramp-volume-1 = " "
 ramp-volume-2 = " "
 ramp-volume-foreground = ${colors.cyan}
+;
+; Right and Middle click (unreleased)
+click-right = pavucontrol &
+; click-middle = 
 ; [module/vpn]
 ; type = custom/script
 ; interval = 1200
