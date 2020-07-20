@@ -110,17 +110,19 @@ set statusline+=%r%=%{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &b
 set statusline+=\ %P    "percent through file
 au FileType gitcommit setlocal tw=72        " Set linewrap in git commit messages only
 "set statusline+=
+set cc=100
 " Set various colors
-hi Comment ctermfg=LightBlue
-hi Todo    ctermfg=Black ctermbg=LightBlue
-hi Search  ctermfg=DarkRed ctermbg=LightYellow
-hi String  ctermfg=DarkBlue
-hi Number  ctermfg=Red
-hi Visual  ctermfg=Black
-hi LineNr  ctermfg=LightGrey ctermbg=DarkGrey
+hi Comment      ctermfg=LightBlue
+hi Todo         ctermfg=Black ctermbg=LightBlue
+hi Search       ctermfg=DarkRed ctermbg=LightYellow
+hi String       ctermfg=DarkBlue
+hi Number       ctermfg=Red
+hi Visual       ctermfg=Black
+hi LineNr       ctermfg=LightGrey ctermbg=DarkGrey
 hi CursorLineNr ctermfg=LightGrey
-hi Statement ctermfg=DarkGreen
-hi Type    ctermfg=DarkCyan
+hi Statement    ctermfg=DarkGreen
+hi Type         ctermfg=DarkCyan
+hi ColorColumn  ctermbg=DarkBlue
 
 """ Key remapings """
 " <Leader> = \ key
