@@ -10,8 +10,7 @@ export GROOVY_HOME=/opt/groovy
 
 if [[ "$_UNIX_TYPE" == "Linux" ]]; then
     # Linux specifics
-    export PATH="$PATH:~/bin/"
-    export PATH="$PATH:/usr/bin/gradle-2.7/bin"
+    export PATH="${PATH}:~/bin/"
     # if which scl_source > /dev/null 2>&1; then
     #     source scl_source enable devtoolset-7
     # fi
@@ -56,13 +55,14 @@ elif [[ "$_UNIX_TYPE" == "Darwin" ]]; then
     # run date script
     ~/workspace/proxy_scripts/set_date.sh
 fi
-[[ -f ~/dotfiles/tmux/tmux_scripts ]] && source ~/dotfiles/tmux/tmux_scripts
+[[ -f "${HOME}/dotfiles/tmux/tmux_scripts" ]] && source "${HOME}/dotfiles/tmux/tmux_scripts"
 
-export PATH="$PATH:/usr/local/opt/openssl/bin:~/bin:~/dotfiles/bin"
-export PATH="$PATH:$HOME/.git-radar"
-export PATH="$HOME/go/bin/:$HOME/.cargo/bin:$PATH"
+export PATH="${PATH}:/usr/local/opt/openssl/bin:${HOME}/bin:${HOME}/dotfiles/bin"
+export PATH="${PATH}:${HOME}/.git-radar"
+export PATH="${PATH}:$HOME/go/bin/:$HOME/.cargo/bin"
+export PATH="${PATH}:${HOME}/.local/bin/"
 
 # Always last - allow entry from .bashrc or .bash_profile 
-if [[ -f ~/.bashrc ]]; then
-    . ~/.bashrc
+if [[ -f "${HOME}/.bashrc" ]]; then
+    source "${HOME}/.bashrc"
 fi
