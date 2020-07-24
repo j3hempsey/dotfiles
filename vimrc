@@ -109,6 +109,7 @@ set statusline+=%=      "left/right separator
 set statusline+=%r%=%{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}%k
 set statusline+=\ %P    "percent through file
 au FileType gitcommit setlocal tw=72        " Set linewrap in git commit messages only
+au FileType markdown setlocal tw=80         " Set linewrap in markdown files only
 "set statusline+=
 set cc=100
 " Set various colors
