@@ -19,12 +19,12 @@ Bundle 'https://github.com/scrooloose/syntastic.git'
 Bundle 'https://github.com/vimwiki/vimwiki.git'
 " Git changes
 Bundle 'https://github.com/airblade/vim-gitgutter.git'
-" Smooth Scrolling 
+" Smooth Scrolling
 Bundle 'https://github.com/terryma/vim-smooth-scroll.git'
-" Tabar: Tag view 
+" Tabar: Tag view
 Bundle 'https://github.com/majutsushi/tagbar.git'
 " Fugative - Git tools
-Bundle 'https://github.com/tpope/vim-fugitive.git' 
+Bundle 'https://github.com/tpope/vim-fugitive.git'
 " Closing tags
 Bundle 'docunext/closetag.vim'
 " Last cursor position
@@ -42,7 +42,8 @@ Bundle 'https://github.com/embear/vim-localvimrc.git'
 " Viz undo
 " TODO: Figure it out https://sjl.bitbucket.io/gundo.vim/
 Bundle 'http://github.com/sjl/gundo.vim.git'
-
+" Trailing whitespace highlighting/cleaning https://github.com/ntpeters/vim-better-whitespace
+Plugin 'ntpeters/vim-better-whitespace'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 " ========= END ======== "
@@ -68,14 +69,14 @@ set hlsearch		" Highlight all search results
 set smartcase		" Enable smart-case search
 set ignorecase		" Always case-insensitive
 set incsearch		" Searches for strings incrementally
- 
+
 set autoindent		" Auto-indent new lines
 set shiftwidth=4	" Number of auto-indent spaces
 "set shiftwidth=3   " For badu...
 set tabstop=4		" Number of spaces a tab counts for
 "set tabstop=3
 set softtabstop=4	" Number of spaces per Tab
-"set softtabstop=3 
+"set softtabstop=3
 set smartindent		" Enable smart-indent
 set smarttab		" Enable smart-tabs
 " Tab completion more BASH-like
@@ -83,7 +84,7 @@ set wildmode=longest,list,full
 set wildmenu
 set modeline
 "" Advanced
-set ruler			" Show row and column ruler information 
+set ruler			" Show row and column ruler information
 set foldmethod=syntax " Set fold ability on syntax
 set foldlevelstart=10 " Automatically fold at block level of 10
 set undolevels=1000	" Number of undo levels
@@ -131,7 +132,7 @@ nnoremap <Leader>a :Ack!<Space>
 nmap <silent> <C-N> :NERDTreeToggle<CR>
 let g:ctrlp_map = '<c-p>'
 " Save file
-inoremap <C-s> <esc>:w<cr> 
+inoremap <C-s> <esc>:w<cr>
 " Quit
 inoremap <C-q> <esc>:q<cr>
 " Save and quit
@@ -140,7 +141,7 @@ inoremap <C-w-q> <esc>:wq<cr>
 nnoremap <C-s> :w<cr>
 " Quit
 nnoremap <C-q> :q<cr>
-" Save and quit 
+" Save and quit
 nnoremap <C-w-q> :wq<cr>
 " Remap paging to smooth scrolling
 noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 5)<CR>
@@ -196,13 +197,13 @@ function! CompareLines(...)
 endfunction
 
 " Ctrlp
-set wildignore+=*.so,*.swp,*.zip,*.o,*.ko,*.d,*.Td 
+set wildignore+=*.so,*.swp,*.zip,*.o,*.ko,*.d,*.Td
 " Unlimited files in cache
 let g:ctrlp_max_files=0
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_follow_symlinks=1
 " More results in search window
-let g:ctrlp_match_window= 'results:50' 
+let g:ctrlp_match_window= 'results:50'
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn)$|\v[\/]centos\.debug$',
   \ 'file': '\v\.(exe|so|dll|o|d|Td)$',
@@ -250,3 +251,11 @@ set term=xterm-256color
 set termencoding=utf-8
 
 autocmd FileType gitcommit call setpos('.', [0, 1, 1, 0])
+" Vim better whitespace config
+let g:better_whitespace_enabled=1
+let g:strip_whitespace_on_save=1
+" let g:strip_whitespace_confirm=0
+let g:strip_only_modified_lines=1
+" let g:strip_whitelines_at_eof=1
+let g:show_spaces_that_precede_tabs=1 " Cannot be automatically corrected.
+
