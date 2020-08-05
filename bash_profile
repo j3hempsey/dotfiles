@@ -7,6 +7,7 @@ unset  SSH_ASKPASS
 
 export GRADLE_HOME=/opt/gradle
 export GROOVY_HOME=/opt/groovy
+export CSCOPE_DB="./cscope.out"
 
 if [[ "$_UNIX_TYPE" == "Linux" ]]; then
     # Linux specifics
