@@ -10,6 +10,7 @@ URxvt.depth:             32
 URxvt.saveLines:         10000
 URxvt*geometry:          96x30
 !URxvt*terminalName:      rxvt-unicode-256color
+URxvt.termName:          xterm-256color
 URxvt*visualBell:        false
 !! Transparency
 URxvt*depth: 32
@@ -63,8 +64,10 @@ URxvt.underlineURLs:           True
 URxvt.keysym.M-Escape:         perl:keyboard-select:activate
 URxvt.keysym.Control-Shift-V:  perl:pasta:paste
 ! TODO:
-! URxvt.keysym.Control-Shift-C:  perl:pasta:copy
-URxvt.clipboard.autocopy:      false 
+URxvt.keysym.Control-Meta-c: builtin-string:
+URxvt.keysym.Control-Meta-v: builtin-string:
+URxvt.keysym.C-S-C:  perl:pasta:copy
+URxvt.clipboard.autocopy:      false
 ! Autocopy text when highlighted
 URxvt.url-select.autocopy:     true
 URxvt.url-select.underline:    true
@@ -72,3 +75,4 @@ URxvt.url-launcher:            /usr/bin/firefox
 URxvt.matcher.button: 1
 ! Disable little yellow box - also unicode input?
 URxvt.iso14755 : false
+URxvt.iso14755_52 : false
