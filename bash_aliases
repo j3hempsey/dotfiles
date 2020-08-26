@@ -156,6 +156,11 @@ ix ()
     curl -F 'f:1=<-' http://ix.io
 }
 
+twoscomplement()
+{
+	echo $((-((~$1 + 1) & 0xffff)))
+}
+
 alias vi="vim"
 alias vimwiki="vim -c VimwikiIndex"
 alias update_vim="vim +PluginInstall +qall"
