@@ -1,6 +1,6 @@
 # vim: filetype=sh
 # Aliases for all OSes
-contssh() 
+contssh()
 {
 	while :; do sleep 1; ssh "$1"; done
 }
@@ -34,12 +34,12 @@ find_file()
     find . -type f | grep "$1"
 }
 
-find_in_file() 
+find_in_file()
 {
     #find . -type f | xargs grep -n --color "$1"
     find . -type f -not \( -path ./.git -prune \) -exec grep -Iq . {} \; -and -print | xargs grep -n --color "$@"
     # Don't include binary files
-    #find . -type f -not \( -path ./.git -prune \) -exec grep -Iq . {} \; -and -print | xargs grep -n --color "$1"; 
+    #find . -type f -not \( -path ./.git -prune \) -exec grep -Iq . {} \; -and -print | xargs grep -n --color "$1";
     #find . -type f | xargs grep -n --color "$1"
 }
 
@@ -73,7 +73,7 @@ gtp_wireshark_filter()
 		teid=$2
 		teidmacformat=$(macformat $teid)
 		printf '((s1ap.gTP_TEID == %s) or (gtp.teid == 0x%08x))\n' $teidmacformat $((0x$teid))
-    else 
+    else
         echo "ERROR: invalid op. [teid <id>]"
 	fi
 }
@@ -93,11 +93,11 @@ regen_cscope() {
 		-o -name "*.cpp"											\
 		-o -name "*.cc"												\
 		-o -name "*.go"										        \
-		> cscope.files 
-		# The -b flag tells Cscope to just build the database, and not launch the Cscope GUI. 
-		# The -q causes an additional, 'inverted index' file to be created, which makes 
+		> cscope.files
+		# The -b flag tells Cscope to just build the database, and not launch the Cscope GUI.
+		# The -q causes an additional, 'inverted index' file to be created, which makes
 		# searches run much faster for large databases. Finally, -k sets Cscope's 'kernel' mode
-		# it will not look in /usr/include for any header files that are #included in your source files 
+		# it will not look in /usr/include for any header files that are #included in your source files
 		# JH: -q seems to cause some issues when using vim to jump to symbol
 		if cscope -b -k; then
 			echo "Created cscope db"
@@ -114,11 +114,11 @@ regen_go_cscope() {
 		-path lib/modules -prune -o                                 \
 		-path "*/.pkg" -prune                                       \
 		-o -name "*.go"										        \
-		> cscope.files 
-		# The -b flag tells Cscope to just build the database, and not launch the Cscope GUI. 
-		# The -q causes an additional, 'inverted index' file to be created, which makes 
+		> cscope.files
+		# The -b flag tells Cscope to just build the database, and not launch the Cscope GUI.
+		# The -q causes an additional, 'inverted index' file to be created, which makes
 		# searches run much faster for large databases. Finally, -k sets Cscope's 'kernel' mode
-		# it will not look in /usr/include for any header files that are #included in your source files 
+		# it will not look in /usr/include for any header files that are #included in your source files
 		# JH: -q seems to cause some issues when using vim to jump to symbol
 		if cscope -b -k; then
 			echo "Created cscope db"
@@ -139,20 +139,20 @@ regen_cscope_devvm() {
       -path lib/modules -prune -o                                 \
       -path "*/.pkg" -prune -o                                    \
       -name "*.[chxsS]" -o -name "*.cpp" -o -name "*.cc"          \
-      > /root/mount/wtcp/cscope.files 
-   pushd /root/mount/wtcp/ 
-   # The -b flag tells Cscope to just build the database, and not launch the Cscope GUI. 
-   # The -q causes an additional, 'inverted index' file to be created, which makes 
+      > /root/mount/wtcp/cscope.files
+   pushd /root/mount/wtcp/
+   # The -b flag tells Cscope to just build the database, and not launch the Cscope GUI.
+   # The -q causes an additional, 'inverted index' file to be created, which makes
    # searches run much faster for large databases. Finally, -k sets Cscope's 'kernel' mode
-   # it will not look in /usr/include for any header files that are #included in your source files 
+   # it will not look in /usr/include for any header files that are #included in your source files
    # JH: -q seems to cause some issues when using vim to jump to symbol
    cscope -b -k
    export CSCOPE_DB=/root/mount/wtcp/cscope.out;
    popd
 }
 
-ix () 
-{ 
+ix ()
+{
     curl -F 'f:1=<-' http://ix.io
 }
 
@@ -180,13 +180,13 @@ alias gsize="git rev-list --objects --all \
 | $(command -v gnumfmt || echo numfmt) --field=2 --to=iec-i --suffix=B --padding=7 --round=nearest"
 alias ip="ip -color=auto"
 
-glogbranchonly() 
+glogbranchonly()
 {
    if [[ -z "$1" || "$1" == "" ]]; then
        echo "ERROR: Must supply branch name."
        return
    fi
-   glog $1 --not $(git for-each-ref --format='%(refname)' refs/heads/ | grep -v "refs/heads/$1") 
+   glog $1 --not $(git for-each-ref --format='%(refname)' refs/heads/ | grep -v "refs/heads/$1")
 }
 ttyusb()
 {
@@ -203,7 +203,7 @@ elif [[ "$_UNIX_TYPE" == "Darwin" ]]; then
     # Mac specifics
     alias killcassandra="kill -9 $(ps aux  | grep cassandra | grep java | awk '{ print $2 }'); sleep 1; ps aux | grep cassandra"
     ### Mac show hidden files aliases ###
-    alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES;' 
+    alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES;'
     alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO;'
     ### END ###
     alias newport_weather="weather \"Newport Beach\""
@@ -220,10 +220,10 @@ elif [[ "$_UNIX_TYPE" == "Darwin" ]]; then
 
     run_on_mgrnodes()
     {
-        if [[ -z "$1" ]]; then 
+        if [[ -z "$1" ]]; then
             echo "ERROR: Must supply a command to run."
         else
-            for i in 1 2 3; do 
+            for i in 1 2 3; do
                 ssh mgrnode$i "$1"
             done
         fi
