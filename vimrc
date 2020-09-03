@@ -260,3 +260,5 @@ let g:strip_only_modified_lines=0
 let g:show_spaces_that_precede_tabs=1 " Cannot be automatically corrected.
 let g:better_whitespace_filetypes_blacklist=['diff', 'gitcommit', 'unite', 'qf', 'help']
 
+" sudo write
+command! W w !sudo tee % > /dev/null
