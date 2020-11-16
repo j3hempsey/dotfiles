@@ -58,7 +58,7 @@ set showbreak=++++	" Wrap-broken line prefix
 set textwidth=100	" Line wrap (number of cols)
 set showmatch		" Highlight matching brace
 " set spell			" Enable spell-checking
-set visualbell	   	" Use visual bell (no beeping)
+set visualbell      " Use visual bell (no beeping)
 set cursorline		" Highlight current line
 syntax on
 set showcmd			" Show information about the command you're running
@@ -113,6 +113,7 @@ au FileType gitcommit setlocal tw=72        " Set linewrap in git commit message
 au FileType markdown setlocal tw=80         " Set linewrap in markdown files only
 "set statusline+=
 set cc=100
+" :help syntax -> naming convention header to see color mapping to symbols
 " Set various colors
 hi Comment      ctermfg=LightBlue
 hi Todo         ctermfg=Black ctermbg=LightBlue
