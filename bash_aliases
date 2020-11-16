@@ -45,7 +45,7 @@ find_in_file()
 
 jview()
 {
-    jira view WTCP-"$1"
+    jira view GBXOS-"$1"
 }
 
 macformat()
@@ -159,6 +159,11 @@ ix ()
 twoscomplement()
 {
 	echo $((-((~$1 + 1) & 0xffff)))
+}
+
+set-date-ssh()
+{
+	ssh $1 sudo date -Isec -s "$(date -Isec)"
 }
 
 alias vi="vim"
