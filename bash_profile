@@ -30,7 +30,7 @@ elif [[ "$_UNIX_TYPE" == "Darwin" ]]; then
     export PATH="${PATH}:${GRADLE_HOME}/bin:${GROOVY_HOME}/bin:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools:${ANDROID_NDK}"
     export PATH="${PATH}:${CASSANDRA_HOME}/bin:~/Library/Python/2.7/bin/"
     export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/"
-    #ddgr browser setting 
+    #ddgr browser setting
     export BROWSER=w3m
     # Disable JS compression when compiling Admin
     export BADU_SKIP_JS=true
@@ -50,7 +50,7 @@ elif [[ "$_UNIX_TYPE" == "Darwin" ]]; then
     export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
     # Finished adapting your PATH environment variable for use with MacPorts.
     ### Mac show hidden files aliases ###
-    alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES;' 
+    alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES;'
     alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO;'
     ### END ###
     # run date script
@@ -62,8 +62,9 @@ export PATH="${PATH}:/usr/local/opt/openssl/bin:${HOME}/bin:${HOME}/dotfiles/bin
 export PATH="${PATH}:${HOME}/.git-radar"
 export PATH="${PATH}:$HOME/go/bin/:$HOME/.cargo/bin"
 export PATH="${PATH}:${HOME}/.local/bin/"
+export GO111MODULE=on
 
-# Always last - allow entry from .bashrc or .bash_profile 
+# Always last - allow entry from .bashrc or .bash_profile
 if [[ -f "${HOME}/.bashrc" ]]; then
     source "${HOME}/.bashrc"
 fi

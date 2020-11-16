@@ -17,10 +17,10 @@ shopt -s histappend
 HISTSIZE=5000
 HISTFILESIZE=2000
 HISTTIMEFORMAT='%FT%T '
-# Ignore rm -rf 
+# Ignore rm -rf
 HISTIGNORE="rm -rf \*"
 
-if [[ "$_UNIX_TYPE" = "" ]]; then 
+if [[ "$_UNIX_TYPE" = "" ]]; then
     export _UNIX_TYPE=$(uname)
 fi
 
@@ -33,6 +33,7 @@ if [[ -f ~/.bash_profile && "$_GUARD_BASH_PROFILE_" -ne 1 ]]; then
     . ~/.bash_profile
 fi
 
+# (cat ~/.cache/wal/sequences &)
 # pip should only run if there is a virtualenv currently activated
 export PIP_REQUIRE_VIRTUALENV=true
 
