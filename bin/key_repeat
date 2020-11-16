@@ -1,0 +1,4 @@
+#!/bin/bash
+# Set initial delay 300ms, repeat 35ms
+which xset 2>&1 > /tmp/tmp.out && xset r rate 300 35 >> /tmp/tmp.out
+exit 0
