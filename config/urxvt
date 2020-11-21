@@ -2,19 +2,21 @@
 !                        URxvt settings
 !-----------------------------------------------------------------------
 
-URxvt.internalBorder:    15
+URxvt.internalBorder:    5
 URxvt.externalBorder:    5
 !URxvt.lineSpace:        0
 !urxvt*shading:          30
 URxvt.depth:             32
 URxvt.saveLines:         10000
 URxvt*geometry:          96x30
-!URxvt*terminalName:      rxvt-unicode-256color
-URxvt.termName:          xterm-256color
+! Forcing terminal is bad practice
+! URxvt*terminalName:      rxvt-unicode-256color
+! URxvt.termName:          xterm-256color
 URxvt*visualBell:        false
 !! Transparency
 URxvt*depth: 32
-URxvt*background: rgba:0000/0000/0200/c800
+! To override the background color set by .Xresources to black
+! URxvt*background: rgba:0000/0000/0200/c800
 
 !! Scrollbar
 URxvt.scrollBar:          false
@@ -27,14 +29,16 @@ URxvt*scrollTtyKeypress:  true
 
 !! Fonts
 !#define fonts xft:Iosevka Slab:size=9
-URxvt*font:             xft:DejaVu Sans Mono:pixelsize=10
+URxvt*font:             xft:Monospace:pixelsize=12,xft:Font Awesome 5 Free Regular:minspace=false
+! xft:monospace:pixelsize=12:minspace=True,xft:Font Awesome 5 Free Regular:pixelsize=12:antialias=true:minspace=True
 ! URxvt*font:             xft:Nimbus Mono L:pixelsize=11
 !"Wuncon Siji:pixelsize=2;3"
 !URxvt*font:              fonts
 URxvt*boldMode:          true
 URxvt*boldFont:          fonts
 
-URxvt.letterSpace:       true
+! URxvt.letterSpace:       3
+URxvt.letterSpace:       True
 
 !! Keybinding
 URxvt.keysym.C-Up:       perl:font-size:increase
@@ -58,15 +62,17 @@ URxvt.tabbed.title:      true
 
 !! Copy/Paste and URl handling
 ! url-select (part of urxvt-perls package)
-URxvt.perl-ext-common:         default,selection-to-clipboard,matcher,keyboard-select,pasta
-URxvt.keysym.M-u:              perl:url-select:select_next
+URxvt.perl-ext-common:         default,selection-to-clipboard,matcher,
+! keyboard-select
+! URxvt.keysym.M-u:              perl:url-select:select_next
 URxvt.underlineURLs:           True
 URxvt.keysym.M-Escape:         perl:keyboard-select:activate
-URxvt.keysym.Control-Shift-V:  perl:pasta:paste
-! TODO:
+! Disables built-in copy past (Ctrl-Alt-[cv])
 URxvt.keysym.Control-Meta-c: builtin-string:
 URxvt.keysym.Control-Meta-v: builtin-string:
-URxvt.keysym.C-S-C:  perl:pasta:copy
+! Copy/Paste
+URxvt.keysym.Control-Shift-C:  eval:selection_to_clipboard
+URxvt.keysym.Control-Shift-V:  eval:paste_clipboard
 URxvt.clipboard.autocopy:      false
 ! Autocopy text when highlighted
 URxvt.url-select.autocopy:     true
