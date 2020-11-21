@@ -208,7 +208,7 @@ if [[ "$_UNIX_TYPE" == "Linux" ]]; then
     # Linux specifics
     alias grep="grep --color=auto"
     alias gcc11="scl enable devtoolset-2 bash"
-    alias ls="ls -G --color"
+    alias ls="ls --color"
 elif [[ "$_UNIX_TYPE" == "Darwin" ]]; then
     # Mac specifics
     alias killcassandra="kill -9 $(ps aux  | grep cassandra | grep java | awk '{ print $2 }'); sleep 1; ps aux | grep cassandra"
@@ -218,7 +218,7 @@ elif [[ "$_UNIX_TYPE" == "Darwin" ]]; then
     ### END ###
     alias newport_weather="weather \"Newport Beach\""
     alias irvine_weather="weather \"Irvine\""
-    alias ls="ls -G"
+    alias ls="ls"
 
     alias licmerge="pushd ~/workspace/support; git pull; git checkout master; git merge origin/development; git push"
     flushdns()
