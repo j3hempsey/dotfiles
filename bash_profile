@@ -64,6 +64,11 @@ export PATH="${PATH}:$HOME/go/bin/:$HOME/.cargo/bin"
 export PATH="${PATH}:${HOME}/.local/bin/"
 export GO111MODULE=on
 
+# Setup a localized machine convention so that changes per host don not need to break git checkins
+if [[ -f "${HOME}/.bash_profile.local" ]]; then
+    source "${HOME}/.bash_profile.local"
+fi
+
 # Always last - allow entry from .bashrc or .bash_profile
 if [[ -f "${HOME}/.bashrc" ]]; then
     source "${HOME}/.bashrc"
