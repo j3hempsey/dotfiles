@@ -1,0 +1,4 @@
+[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
+# Starts up gnome-keyring so that the next cloud client can autoload.
+eval $(/usr/bin/gnome-keyring-daemon --start --components=secrets)
+exec i3
