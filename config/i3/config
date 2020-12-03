@@ -305,7 +305,7 @@ bindsym $mod+less move workspace to output left
 ### RUN PROGRAMS ###
 # Lock screen after timeout
 #TODO: exec --no-startup-id xautolock -locker "./.config/i3/i3exit lock" -time 5 -detectsleep -notify 10
-exec_always --no-startup-id xrdb -merge $HOME/.Xresources
+exec_always --no-startup-id xrdb $HOME/.Xresources
 # Start compositor
 exec --no-startup-id compton -b --config $HOME/.config/compton/compton.conf
 # Fix key repeat/delay
