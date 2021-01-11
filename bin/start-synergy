@@ -1,0 +1,5 @@
+#!/bin/bash -x
+IP_ADDR="192.168.122.1"
+IP_ADDR="192.168.0.120"
+# synergy-core --server --address "$IP_ADDR" -c .synergy.conf --debug DEBUG -n pootie
+synergys --address "$IP_ADDR" -c .synergy.conf --debug DEBUG -n pootie
