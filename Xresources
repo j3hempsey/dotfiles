@@ -19,4 +19,4 @@ Xterm*saveLines: 10000
 
 #include "/home/jhempsey/.config/urxvt"
 !! Color theme
-#include "/home/jhempsey/dotfiles/colors/codeschool.dark"
+#include "/home/jhempsey/dotfiles/colors/codeschool.dark2"
