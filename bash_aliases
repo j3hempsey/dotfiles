@@ -211,7 +211,6 @@ if [[ "$_UNIX_TYPE" == "Linux" ]]; then
     alias ls="ls --color"
 elif [[ "$_UNIX_TYPE" == "Darwin" ]]; then
     # Mac specifics
-    alias killcassandra="kill -9 $(ps aux  | grep cassandra | grep java | awk '{ print $2 }'); sleep 1; ps aux | grep cassandra"
     ### Mac show hidden files aliases ###
     alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES;'
     alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO;'
@@ -243,10 +242,6 @@ elif [[ "$_UNIX_TYPE" == "Darwin" ]]; then
     {
         curl -s "wttr.in/${1/ /%20}"
     }
-    eval $(thefuck --alias)
-    alias ping="prettyping"
-    alias cat="bat"
-    alias diff="diff-so-fancy"
     alias devvm="bash -x $HOME/workspace/proxy_scripts/set_date.sh && ssh devvm"
     alias vmdates="$HOME/workspace/proxy_scripts/set_date.sh vmclient; $HOME/workspace/proxy_scripts/set_date.sh vmproxy; $HOME/workspace/proxy_scripts/set_date.sh vmserver"
     alias unmount_unlocker="sudo diskutil unmount /Volumes/UNLOCKER"
