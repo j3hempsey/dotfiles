@@ -263,3 +263,7 @@ let g:better_whitespace_filetypes_blacklist=['diff', 'gitcommit', 'unite', 'qf',
 
 " sudo write
 command! W w !sudo tee % > /dev/null
+
+" Show tabs
+set list
+set listchars=tab:··
