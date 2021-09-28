@@ -217,7 +217,7 @@ elif [[ "$_UNIX_TYPE" == "Darwin" ]]; then
     ### END ###
     alias newport_weather="weather \"Newport Beach\""
     alias irvine_weather="weather \"Irvine\""
-    alias ls="ls"
+    alias ls="ls -G"
 
     alias licmerge="pushd ~/workspace/support; git pull; git checkout master; git merge origin/development; git push"
     flushdns()
