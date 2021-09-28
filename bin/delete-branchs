@@ -1,0 +1,12 @@
+#!/bin/bash -x
+# Cannot use stdin for for both read calls so we send the output of git branch to another fd and
+# read from there.
+while read -r b <&3; do
+	printf "Delete branch: %s ? (y/N)\n" "$b"
+	read ans
+	if [ "$ans" != "${ans#[Yy]}" ] ;then
+		git branch -D "$b"
+	fi
+done 3<<EOF
+$(git branch)
+EOF
