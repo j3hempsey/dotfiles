@@ -53,8 +53,10 @@ elif [[ "$_UNIX_TYPE" == "Darwin" ]]; then
     alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES;'
     alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO;'
     ### END ###
-    # run date script
-    ~/workspace/proxy_scripts/set_date.sh
+
+    #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+    export SDKMAN_DIR="/Users/brian/.sdkman"
+    [[ -s "/Users/brian/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/brian/.sdkman/bin/sdkman-init.sh"
 fi
 [[ -f "${HOME}/dotfiles/tmux/tmux_scripts" ]] && source "${HOME}/dotfiles/tmux/tmux_scripts"
 
@@ -73,3 +75,4 @@ fi
 if [[ -f "${HOME}/.bashrc" ]]; then
     source "${HOME}/.bashrc"
 fi
+
