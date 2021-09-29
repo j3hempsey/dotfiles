@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash
 # Cannot use stdin for for both read calls so we send the output of git branch to another fd and
 # read from there.
 while read -r b <&3; do
