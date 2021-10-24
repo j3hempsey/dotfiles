@@ -1,0 +1,22 @@
+#!/bin/bash
+
+die() { printf "%s: %s\\n" "${0##*/}" "$*" >&2; exit 1; }
+
+dev=$1
+img=$2
+
+[[ -b $dev ]]               || die "$dev does not exist or is not a block device"
+grep -q "$dev" /proc/mounts && die "$dev or a partition on it is mounted"
+
+for d in /dev/disk/by-path/*-usb-*; do
+	p=$(realpath "$d")
+	[[ $p == "$dev" ]] && break;
+done
+
+[[ $p == "$dev"  ]] || die "$dev is not a usb device"
+[[ $d == *-part* ]] && die "$dev is a partition"
+
+[[ -r $img ]] || die "$img does not exist or is not readable"
+
+echo Flashing image >&2
+sudo dd if="$img" of="$dev" bs=1M status=progress conv=fdatasync
