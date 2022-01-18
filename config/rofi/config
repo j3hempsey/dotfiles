@@ -7,5 +7,5 @@ configuration {
 	padding: 400;
 	eh: 1;
 	hide-scrollbar: true;
-	theme: "/home/jhempsey/.config/rofi/theme";
 }
+@theme "/home/jhempsey/.config/rofi/theme"
