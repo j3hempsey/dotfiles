@@ -66,6 +66,14 @@ export PATH="${PATH}:$HOME/go/bin/:$HOME/.cargo/bin"
 export PATH="${PATH}:${HOME}/.local/bin/"
 export GO111MODULE=on
 
+# Set SSH auth socket location to be consistent so agent forwarding works with tmux
+SOCK="/tmp/ssh-agent-$USER-tmux"
+if test "$SSH_AUTH_SOCK" && [[ $SSH_AUTH_SOCK != "$SOCK" ]]; then
+    rm -f "$SOCK"
+    ln -sf "$SSH_AUTH_SOCK" "$SOCK"
+    export SSH_AUTH_SOCK="$SOCK"
+fi
+
 # Setup a localized machine convention so that changes per host don not need to break git checkins
 if [[ -f "${HOME}/.bash_profile.local" ]]; then
     source "${HOME}/.bash_profile.local"
