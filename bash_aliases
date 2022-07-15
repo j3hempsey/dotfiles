@@ -189,6 +189,7 @@ alias gsize="git rev-list --objects --all \
 | cut -c 1-12,41- \
 | $(command -v gnumfmt || echo numfmt) --field=2 --to=iec-i --suffix=B --padding=7 --round=nearest"
 alias ip="ip -color=auto"
+alias docker-remove-all="docker ps -a | awk '!/CONTAINER/ { print $1 }' | xargs docker rm"
 
 glogbranchonly()
 {
