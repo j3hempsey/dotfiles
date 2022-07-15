@@ -9,8 +9,7 @@
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
 # List of files/folders to symlink in homedir
-files=(bashrc screenrc bash_aliases bash_profile vimrc vim tmux.conf git-radar gitignore_global ssh/rc)
-
+files=(bashrc bash_aliases bash_profile vimrc vim tmux.conf git-radar gitignore_global ssh/rc Xresources)
 ##########
 
 # Update submodules
