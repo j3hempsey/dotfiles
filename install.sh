@@ -9,7 +9,7 @@
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
 # List of files/folders to symlink in homedir
-files=(bashrc screenrc bash_aliases bash_profile vimrc vim tmux.conf git-radar conkyrc gitignore_global) 
+files=(bashrc screenrc bash_aliases bash_profile vimrc vim tmux.conf git-radar gitignore_global ssh/rc)
 
 ##########
 
@@ -25,9 +25,9 @@ echo "Changing to the $dir directory"
 cd $dir || exit 1
 echo "...done"
 
-# move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
+# move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks
 for file in "${files[@]}"; do
-    if [[ "$file" != "old_files" ]] && [[ "$file" != "install.sh" ]]; then 	    
+    if [[ "$file" != "old_files" ]] && [[ "$file" != "install.sh" ]]; then
         if [[ -e ~/."$file" ]]; then
             echo "Moving any existing dotfiles from ~ to $olddir"
             mv ~/."$file" ~/dotfiles_old/
