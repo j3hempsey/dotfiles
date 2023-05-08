@@ -274,8 +274,10 @@ bindsym $mod+plus scratchpad show
 
 # Gaps config
 for_window [class="^.*"] border pixel 3
-gaps inner 5 # Px to adjacent containers
-gaps outer 5 # Px to edge of screen - Additive to inner gap
+# Px to adjacent containers
+gaps inner 5
+# Px to edge of screen - Additive to inner gap
+gaps outer 5
 # smart_gaps on # No gap if only one window is on worksapce
 
 # Assign window mappings
@@ -284,7 +286,7 @@ assign [class="^Slack$"] 10
 assign [class="^zoom$"] 10
 
 # Assign 0 by default to second screen, if not there will go back to primary
-workspace 10 output primary
+workspace 1 output primary
 workspace 10 output HDMI-A-0
 
 # Mark windows
@@ -295,8 +297,8 @@ bindsym $mod+m exec i3-input -F 'mark %s' -l 1 -P 'Mark: '
 bindsym $mod+g exec i3-input -F '[con_mark="%s"] focus' -l 1 -P 'Goto: '
 
 # Move container(window) to monitor left/right
-bindsym $mod+Shift+greater move container to output right
-bindsym $mod+Shift+less move container to output left
+bindsym $mod+Shift+greater move container to output up
+bindsym $mod+Shift+less move container to output down
 
 # Move workspace to monitor left/right
 bindsym $mod+greater move workspace to output right

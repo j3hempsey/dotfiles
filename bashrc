@@ -14,8 +14,8 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=5000
-HISTFILESIZE=2000
+HISTSIZE=10000
+HISTFILESIZE=10000
 HISTTIMEFORMAT='%FT%T '
 # Ignore rm -rf
 HISTIGNORE="rm -rf \*"
@@ -35,7 +35,7 @@ fi
 
 # (cat ~/.cache/wal/sequences &)
 # pip should only run if there is a virtualenv currently activated
-export PIP_REQUIRE_VIRTUALENV=true
+export PIP_REQUIRE_VIRTUALENV=false
 
 declare -A ps1colors
 
