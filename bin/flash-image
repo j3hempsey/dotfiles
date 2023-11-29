@@ -5,6 +5,8 @@ die() { printf "%s: %s\\n" "${0##*/}" "$*" >&2; exit 1; }
 dev=$1
 img=$2
 
+echo "$0 <dev-to-flash> <img-to-flash>"
+
 [[ -b $dev ]]               || die "$dev does not exist or is not a block device"
 grep -q "$dev" /proc/mounts && die "$dev or a partition on it is mounted"
 
