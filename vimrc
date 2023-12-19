@@ -116,6 +116,7 @@ au FileType markdown setlocal tw=80         " Set linewrap in markdown files onl
 au FileType rst setlocal tw=80              " Set linewrap in restructuredtext files only
 au FileType terraform setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 au FileType terraform-vars setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+au FileType hcl setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 "set statusline+=
 set cc=100
 " :help syntax -> naming convention header to see color mapping to symbols

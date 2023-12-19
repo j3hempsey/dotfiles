@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 8
+font pango:monospace 10
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -63,12 +63,12 @@ set_from_resource $red-alt i3wm.color9 #FF5454
 
 set_from_resource $alert i3wm.color1 #B21818
 
-# class                 border  backgr. text indicator child_border
-client.focused          $fg     $fg     $fg  $fg       $bg
-client.focused_inactive $bg     $bg     $fg  $bg       $fg
-client.unfocused        $bg     $bg     $fg  $fg       $black
-client.urgent           $bg     $bg     $fg  $fg       $alert
-client.placeholder      $bg     $bg     $fg  $fg       $bg
+# class                 border  backgr. text    indicator child_border
+client.focused          $bg     $fg     $black  $fg       $bg
+client.focused_inactive $bg     $bg     $fg     $bg       $fg
+client.unfocused        $bg     $bg     $fg     $fg       $black
+client.urgent           $bg     $bg     $fg     $fg       $alert
+client.placeholder      $bg     $bg     $fg     $fg       $bg
 
 client.background       $bg
 
@@ -76,8 +76,8 @@ client.background       $bg
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec gnome-terminal
-bindsym $mod+Shift+Return exec urxvt
+# bindsym $mod+Return exec gnome-terminal
+bindsym $mod+Return exec urxvt
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -95,6 +95,9 @@ bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
+# switch tabs
+# bindsym $mod+Mod1+h focus parent; focus left
+# bindsym $mod+Mod1+l focus parent; focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -315,7 +318,7 @@ exec_always --no-startup-id xset r rate 300 35 # Set initial delay 300ms, repeat
 # Set background
 exec --no-startup-id feh --bg-fill $HOME/Nextcloud/Pictures/Mach\ 1\ -\ Random/IMG_20180315_180728.jpg
 # Setup displays
-exec --no-startup-id xrandr --output HDMI-A-0 --primary  --mode 2560x1440 --rate 60.00 --output DisplayPort-0 --mode 1920x1080 --rate 60.00 --right-of HDMI-A-0
+exec --no-startup-id xrandr --output eDP-1 --primary  --mode 2560x1600 --rate 60.00 --output DP-1-0 --mode 2560x1440 --rate 60.00 --right-of eDP-1
 exec --no-startup-id sleep .5 && /bin/bash $HOME/dotfiles/bin/launch_polybar
 # Startup dunst
 exec --no-startup-id dunst -config $HOME/.config/dunst/dunstrc &

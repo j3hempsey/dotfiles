@@ -1,4 +1,10 @@
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 # Starts up gnome-keyring so that the nextcloud client can autoload.
-eval $(/usr/bin/gnome-keyring-daemon --start --components=secrets)
+eval $(/usr/bin/gnome-keyring-daemon --start --components=secrets,ssh,gpg,pkc11)
+export SSH_AUTH_SOCK
+export GPG_AGENT_INFO
+export GNOME_KEYRING_CONTROL
+export GNOME_KEYRING_PID
+xset +fp /home/jhempsey/.local/share/fonts
+xset fp rehash
 exec i3

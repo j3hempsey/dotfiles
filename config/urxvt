@@ -29,7 +29,8 @@ URxvt*scrollTtyKeypress:  true
 
 !! Fonts
 !#define fonts xft:Iosevka Slab:size=9
-URxvt*font:             xft:Monospace:pixelsize=12,xft:Font Awesome 5 Free Regular:minspace=false
+! URxvt*font:             xft:Monospace:pixelsize=15,xft:Font Awesome 5 Free Regular:minspace=false
+URxvt*font:             xft:Droid Sans Mono:pixelsize=15,xft:Font Awesome 5 Free Regular:minspace=false
 ! xft:monospace:pixelsize=12:minspace=True,xft:Font Awesome 5 Free Regular:pixelsize=12:antialias=true:minspace=True
 ! URxvt*font:             xft:Nimbus Mono L:pixelsize=11
 !"Wuncon Siji:pixelsize=2;3"
@@ -62,7 +63,8 @@ URxvt.tabbed.title:      true
 
 !! Copy/Paste and URl handling
 ! url-select (part of urxvt-perls package)
-URxvt.perl-ext-common:         default,selection-to-clipboard,matcher,
+! font-size from github/majutsushi/urxvt-font-size
+URxvt.perl-ext-common:         default,selection-to-clipboard,matcher,font-size
 ! keyboard-select
 ! URxvt.keysym.M-u:              perl:url-select:select_next
 URxvt.underlineURLs:           True
