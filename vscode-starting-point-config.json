@@ -1,0 +1,105 @@
+{
+    "editor.renderWhitespace": "trailing",
+    "editor.minimap.enabled": false,
+    "vim.searchHighlightColor": "#969071",
+    "vim.searchMatchColor": "#dbb769",
+    "editor.fontSize": 13,
+    "vim.vimrc.enable": true,
+    "vim.searchHighlightTextColor": "#f5da53",
+    "vim.substitutionColor": "#ccb37c",
+    // "vim.vimrc.path": "C:\\Users\\jhempsey\\_vimrc",
+    "vim.hlsearch": true,
+    "settingsSync.ignoredSettings": [
+
+    ],
+    "remote.SSH.remotePlatform": {
+        "deskpi": "linux"
+    },
+    "security.workspace.trust.untrustedFiles": "open",
+    "vim.normalModeKeyBindings": [
+        {
+            "before": ["<C-p>"],
+            "commands": [
+                "workbench.action.quickOpen"
+            ]
+        },
+        {
+            "before": ["<C-i>"],
+            "commands": [
+                "continue.quickEdit"
+            ]
+        }
+    ],
+    "vim.visualModeKeyBindings": [
+        {
+            "before": ["<C-L>"],
+            "commands": [
+                "continue.focusContinueInputWithoutClear"
+            ]
+        },
+        {
+            "before": ["<C-l>"],
+            "commands": [
+                "continue.focusContinueInput"
+            ]
+        },
+        {
+            "before": ["<C-i>"],
+            "commands": [
+                "codeium.openCodeiumCommand"
+            ]
+        }
+    ],
+    "vim.statusBarColorControl": true,
+    "vim.statusBarColors.normal": ["#8FBCBB", "#434C5E"],
+    "vim.statusBarColors.insert": "#BF616A",
+    "vim.statusBarColors.visual": "#B48EAD",
+    "vim.statusBarColors.visualline": "#B48EAD",
+    "vim.statusBarColors.visualblock": "#A3BE8C",
+    "vim.statusBarColors.replace": "#D08770",
+    "vim.statusBarColors.commandlineinprogress": "#007ACC",
+    "vim.statusBarColors.searchinprogressmode": "#007ACC",
+    "vim.statusBarColors.easymotionmode": "#007ACC",
+    "vim.statusBarColors.easymotioninputmode": "#007ACC",
+    "vim.statusBarColors.surroundinputmode": "#007ACC",
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#8FBCBB",
+        "statusBar.noFolderBackground": "#8FBCBB",
+        "statusBar.debuggingBackground": "#8FBCBB",
+        "statusBar.foreground": "#434C5E",
+        "statusBar.debuggingForeground": "#434C5E"
+    },
+    "files.trimTrailingWhitespace": true,
+    "[c]": {
+        "editor.defaultFormatter": "ms-vscode.cpptools"
+    },
+    "cmake.showOptionsMovedNotification": false,
+    "terminal.integrated.enableMultiLinePasteWarning": "never",
+    "window.zoomLevel": -1,
+    "cmake.pinnedCommands": [
+        "workbench.action.tasks.configureTaskRunner",
+        "workbench.action.tasks.runTask"
+    ],
+    "editor.wordWrapColumn": 100,
+    "vim.textwidth": 100,
+    "files.eol": "\n",
+    "continue.telemetryEnabled": false,
+    "editor.tabCompletion": "on",
+    "security.allowedUNCHosts": [
+        "wsl$"
+    ],
+    "codeium.enableSearch": true,
+    "remote.autoForwardPortsSource": "hybrid",
+    "editor.accessibilitySupport": "off",
+    "git.openRepositoryInParentFolders": "never",
+    "dotnetAcquisitionExtension.enableTelemetry": false,
+    "csharp.debug.symbolOptions.searchPaths": [
+        "${workspaceFolder}/**"
+    ],
+    "go.toolsManagement.autoUpdate": true,
+    "editor.stickyScroll.enabled": false,
+    "dotnet.unitTestDebuggingOptions": {},
+    "git.blame.editorDecoration.enabled": false,
+    "dotnet.unitTests.runSettingsPath": "./test.runsettings",
+    "dotnet.testWindow.useTestingPlatformProtocol": true
+}
