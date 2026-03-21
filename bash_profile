@@ -64,6 +64,7 @@ export PATH="${PATH}:/usr/local/opt/openssl/bin:${HOME}/bin:${HOME}/dotfiles/bin
 export PATH="${PATH}:${HOME}/.git-radar"
 export PATH="${PATH}:$HOME/go/bin/:$HOME/.cargo/bin"
 export PATH="${PATH}:${HOME}/.local/bin/"
+export PATH="$PATH:${HOME}/.npm-packages/bin"
 export GO111MODULE=on
 
 # Set SSH auth socket location to be consistent so agent forwarding works with tmux
@@ -84,3 +85,5 @@ if [[ -f "${HOME}/.bashrc" ]]; then
     source "${HOME}/.bashrc"
 fi
 
+
+. "$HOME/.local/bin/env"

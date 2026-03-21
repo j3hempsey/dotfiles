@@ -111,3 +111,5 @@ fi
 PS1="$PS1${ps1colors[txtwht]}:\$${ps1colors[txtwht]}\[\e[m\] "
 # END Second line
 PS2="${ps1colors[txtgrn]}>${ps1colors[txtwht]} "
+
+. "$HOME/.local/bin/env"

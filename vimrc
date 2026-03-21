@@ -112,8 +112,8 @@ set statusline+=%=      "left/right separator
 set statusline+=%r%=%{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}%k
 set statusline+=\ %P    "percent through file
 au FileType gitcommit setlocal tw=72        " Set linewrap in git commit messages only
-au FileType markdown setlocal tw=80         " Set linewrap in markdown files only
-au FileType rst setlocal tw=80              " Set linewrap in restructuredtext files only
+au FileType markdown setlocal tw=100         " Set linewrap in markdown files only
+au FileType rst setlocal tw=100              " Set linewrap in restructuredtext files only
 au FileType terraform setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 au FileType terraform-vars setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 "set statusline+=
@@ -149,14 +149,23 @@ nnoremap <C-s> :w<cr>
 nnoremap <C-q> :q<cr>
 " Save and quit
 nnoremap <C-w-q> :wq<cr>
-" Remap paging to smooth scrolling
-noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 5)<CR>
-noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 5)<CR>
-noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 5)<CR>
-noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 5)<CR>
-" Remap page up/down to use the scolling too
-noremap <silent> <PageUp> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
-noremap <silent> <PageDown> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
+
+""" Function to call after plugins are loaded - optionally setup smooth scolling in vim
+""" vs use in vscode and breaking scolling
+function! SetPluginOptions()
+	" Remap paging to smooth scrolling
+	if exists('g:loaded_smooth_scroll')
+		noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 5)<CR>
+		noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 5)<CR>
+		noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 5)<CR>
+		noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 5)<CR>
+		" Remap page up/down to use the scolling too
+		noremap <silent> <PageUp> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
+		noremap <silent> <PageDown> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
+	endif
+endfunction
+au VimEnter * call SetPluginOptions()
+
 " Show tagbar
 nmap <F8> :TagbarToggle<CR>
 
