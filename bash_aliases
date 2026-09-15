@@ -248,3 +248,20 @@ elif [[ "$_UNIX_TYPE" == "Darwin" ]]; then
     alias unmount_unlocker="sudo diskutil unmount /Volumes/UNLOCKER"
 fi
 
+alias rebase-main="git fetch -a && git rebase origin/main"
+alias xclip="xclip -selection clipboard"
+alias nvidia-app="env __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia"
+sqlite_file()
+{
+	f=$1
+	f_name=${f##*/}
+	p=$(realpath "${f%/*}")
+	docker run -it --rm   -p 8080:8080   -v "$p":/data   ghcr.io/coleifer/sqlite-web:latest "$f_name"
+}
+
+marp(){
+	echo "FIXME" && exit 1
+	docker run --rm --init     -v "$PWD:/home/marp/app"     -e MARP_USER="$(id -u):$(id -g)"     -e LANG=C.UTF-8     marpteam/marp-cli     docs/design/deck.md -o deck.pdf
+}
+
+
